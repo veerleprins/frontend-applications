@@ -1,3 +1,79 @@
+## Frontend Applications
+
+## Table of contents:
+* [Description](#black_nib-description)
+* [Feature](#small_orange_diamond-feature)
+* [Datasets](#link-datasets)
+* [Install](#arrow_down-install)
+* [Deploy](#globe_with_meridians-deploy)
+* [Sources](#books-sources)
+
+## :black_nib: Description
+For the Frontend Application course within the Information Design semester (@cmda-tt) we learn about frameworks and libraries in JavaScript.
+
+This repository shows a data visualization with React using datasets provided by the RDW. This visualization will visualize the following main question:
+
+**How about parking an electric car in the Netherlands?**
+
+In order to be able to visualize this main question, several sub questions have been created. You can find these in my [wiki - Concept](https://github.com/veerleprins/frontend-applications)
+
+## :small_orange_diamond: Feature
+
+
+## :link: Datasets
+The dataset that was used is the datasets supplied by the RDW on behalf of *De Volkskrant*. These are public datasets and can be found at the links below:
+* [Specifications parking area in the Netherlands](https://opendata.rdw.nl/Parkeren/Open-Data-Parkeren-SPECIFICATIES-PARKEERGEBIED/b3us-f26s)
+* [Location of parking garages in the Netherlands](https://opendata.rdw.nl/Parkeren/GEO-Parkeer-Garages/t5pc-eb34)
+
+## :arrow_down: Install
+### 1. Install npm :computer:
+Before getting started, you need to install nvm. nvm can be installed by typing the following line of code in terminal and pressing enter:
+
+```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh ```
+
+If nvm has been successfully installed, you can check the version by typing the following line of code in the terminal and pressing enter:
+
+```nvm --version```
+
+### 2. :open_file_folder: Clone folder
+Then you need to download this project and open it with your code editor. To do this, open your terminal with the correct path in which you want this repository. **Example**:
+
+```cd/Desktop/Repos```
+
+Then type the following line of code into your terminal:
+
+```git clone https://github.com/veerleprins/frontend-applications.git```
+
+With this line of code, you've successfully downloaded the repository to your desired location.
+
+### 3. Install all the packages :bookmark_tabs:
+Then type the code below into your terminal:
+
+``` npm install ```
+
+With this line of code, you download all the packages (like parcel-bundler) you need for this repo.
+
+### 4. :white_check_mark: Start and run the code
+Go to the repository in the terminal and add the following line of code below:
+
+``` npm run dev```
+
+Now you can go to http://localhost:3000/ in your browser and view the visualization! :raised_hands:
+
+## :globe_with_meridians: Deploy
+
+
+## :books: Sources
+<!-- https://bradfrost.com/blog/post/atomic-web-design/ -->
+<!-- https://reactjs.org/ -->
+<!-- https://www.youtube.com/watch?v=Uo_1zgaB2qM -->
+
+
+## :lock: License
+This repo is licensed as [MIT](https://github.com/veerleprins/frontend-applications/blob/main/LICENSE) by :copyright: [Veerle Prins](https://github.com/veerleprins), 2020
+
+
+
 <!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
