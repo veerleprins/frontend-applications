@@ -11,7 +11,7 @@
 ## :black_nib: Description
 For the Frontend Application course within the Information Design semester (@cmda-tt) we learn about frameworks and libraries in JavaScript.
 
-This repository shows a data visualization with React using datasets provided by the RDW. This visualization will visualize the following main question:
+This repository shows a data visualization with React and D3 using datasets provided by the RDW. This visualization will visualize the following main question:
 
 **How about parking an electric car in the Netherlands?**
 
@@ -51,14 +51,14 @@ Then type the code below into your terminal:
 
 ``` npm install ```
 
-With this line of code, you download all the packages (like parcel-bundler) you need for this repo.
+With this line of code, you download all the packages you need for this repo.
 
 ### 4. :white_check_mark: Start and run the code
 Go to the repository in the terminal and add the following line of code below:
 
-``` npm run dev```
+``` npm start```
 
-Now you can go to http://localhost:3000/ in your browser and view the visualization! :raised_hands:
+Now React opens http://localhost:300/ automatically in your browser to view the visualization! :raised_hands:
 
 ## :globe_with_meridians: Deploy
 
