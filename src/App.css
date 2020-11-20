@@ -4,6 +4,9 @@
 
 .App h1 {
   color: #68ACD4;
+  /* color: white; */
+  background-color: #282c34;
+  padding: 25px;
 }
 
 
