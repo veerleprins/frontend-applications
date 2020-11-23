@@ -1,24 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { API_1 } from '../../modules/helpers/utils';
 import { json } from 'd3';
+import { API_1 } from '../../modules/helpers/utils';
 
-
-export function useFetch () {
-  // Function in useState because faster (only runs once i.s.o. every time)
-  const [data, setData] = useState(() => {
-    return null;
-  });
-  
-  useEffect(() => {
-    // hierin opschoon functies aanroepen.
-    async function fetchData() {
-      // let response = await fetch(API_1);
-      // response = await response.json();
-      let response = await json(API_1);
-      setData(prevRes => response);
-    }
-    fetchData();
-  }, []);
-
-  return data;
+export function fetchingData(setSpecifications) {
+  const fData = fetchData(API_1);
+  setSpecifications(fData);
 }
+
+async function fetchData (endpoint) {
+  return await json(endpoint);
+}
+
+
+
+
+// export function useFetch (endpoint) {
+//   // Function in useState because faster (only runs once i.s.o. every time)
+//   const [data, setData] = useState(() => {
+//     return null;
+//   });
+  
+//   useEffect(() => {
+//     // hierin opschoon functies aanroepen.
+//     async function fetchData() {
+//       let response = await json(endpoint);
+//       setData(prevRes => response);
+//     }
+//     fetchData();
+//   }, [endpoint]);
+
+//   return data;
+// }
+

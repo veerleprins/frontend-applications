@@ -1,15 +1,43 @@
 import './App.css';
-// import { TestComponent } from './Components/Organisms/TestComponent';
-import { useFetch } from './Components/Organisms/FetchingData';
+import {startText, secondText } from './modules/helpers/utils';
+import { Title } from './Components/Atoms/Title';
+import { Paragraph } from './Components/Atoms/Paragraph';
+import { SubTitle } from './Components/Atoms/SubTitle';
+import { useEffect, useState } from 'react';
+import { fetchData } from './modules/fetchData';
 
 
 function App() {
-  const data = useFetch();
-  if (!data) {
-    return <p>Loading...</p>;
+  // Datasets:
+  const [parking, setParking] = useState(null);
+  const [cars, setCars] = useState(null);
+  const [electric, setElectric] = useState(null);
+
+  useEffect(() => {
+    fetchData(setParking, setCars, setElectric);
+  }, []);
+
+  if (!parking) {
+    return <div className="App">
+    <Title/>
+    <Paragraph text={startText} name="firstP"/>
+    <SubTitle subtitle="Hoeveel elektrische auto’s rijden er in Nederland?"/>
+    <Paragraph text={secondText} name="secondP"/>
+    <p>Loading...</p>
+    <SubTitle subtitle="Welke merken zijn het populairs in Nederland?"/>
+    <SubTitle subtitle="Waar staan de meeste laadpalen in Nederland?"/>
+  </div>
   }
-  console.log(data);
-  return <div>{JSON.stringify(data)}</div>
+
+  return <div className="App">
+    <Title/>
+    <Paragraph text={startText} name="firstP"/>
+    <SubTitle subtitle="Hoeveel elektrische auto’s rijden er in Nederland?"/>
+    <Paragraph text={secondText} name="secondP"/>
+    <div>{JSON.stringify(parking[0])}</div>
+    <SubTitle subtitle="Welke merken zijn het populairst in Nederland?"/>
+    <SubTitle subtitle="Waar staan de meeste laadpalen in Nederland?"/>
+  </div>
 }
  export default App;
 
