@@ -6,6 +6,9 @@ import { SubTitle } from './Components/Atoms/SubTitle';
 import React, { useEffect, useState } from 'react';
 import { fetchData } from './modules/fetchData';
 import { scaleBand, scaleLinear, max } from 'd3';
+import { AxisBottom } from './Components/Atoms/AxisBottom';
+import { AxisLeft } from './Components/Atoms/AxisLeft';
+import { Bars } from './Components/Atoms/Bars';
 
 const innerHeight = height - margin.top - margin.bottom;
 const innerWidth = width - margin.left - margin.right;
@@ -28,15 +31,17 @@ function App() {
 
   // D3 BarChart with help from Curran Kelleher.
   // Source: https://www.youtube.com/watch?v=y03s9MEx6mc&list=PL9yYRbwpkykuK6LSMLH3bAaPpXaDUXcLV&index=23
+
+  const xValue = d => d.value;
+  const yValue = d => d.brand;
+
   const yScale = scaleBand()
-    .domain(electric.map(d => d.brand))
+    .domain(electric.map(yValue))
     .range([0, innerHeight]);
 
   const xScale = scaleLinear()
-    .domain([0, max(electric, d => d.value)])
+    .domain([0, max(electric, xValue)])
     .range([0, innerWidth]);
-
-  console.log(xScale.ticks());
 
   return <div className="App">
     <Title/>
@@ -47,35 +52,15 @@ function App() {
     <SubTitle subtitle="Welke merken zijn het populairst in Nederland?"/>
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left}, ${margin.top})`}>
-        {xScale.ticks().map(tickValue => (
-          <g key={tickValue} transform={`translate(${xScale(tickValue)}, 0)`}>
-            <line
-              y2={innerHeight} 
-              stroke="black"/>
-            <text y={innerHeight + 3} dy=".71em" style={{textAnchor: 'middle'}}>
-              {tickValue}
-            </text>
-          </g>
-        ))}
-        {yScale.domain().map(tickValue => (
-            <text 
-              key={tickValue}
-              style={{textAnchor: "end"}} 
-              x={-3} 
-              dy=".32em" 
-              y={yScale(tickValue) + yScale.bandwidth() / 2}>
-              {tickValue}
-            </text>
-        ))}
-        {electric.map(d => 
-          (<rect 
-            key={d.brand} 
-            x={0}
-            y={yScale(d.brand)} 
-            width={xScale(d.value)} 
-            height={yScale.bandwidth()}
-            />
-          ))}
+        <AxisBottom xScale={xScale} innerHeight={innerHeight}/>
+        <AxisLeft yScale={yScale} />
+        <Bars 
+          data={electric} 
+          xScale={xScale} 
+          yScale={yScale}
+          xValue={xValue}
+          yValue={yValue}
+        />
         </g>
     </svg>
     <SubTitle subtitle="Waar staan de meeste laadpalen in Nederland?"/>
