@@ -32,16 +32,17 @@ function App() {
   // D3 BarChart with help from Curran Kelleher.
   // Source: https://www.youtube.com/watch?v=y03s9MEx6mc&list=PL9yYRbwpkykuK6LSMLH3bAaPpXaDUXcLV&index=23
 
-  const xValue = d => d.value;
-  const yValue = d => d.brand;
+  const xValue = d => d.brand; //TESLA
+  const yValue = d => d.value; //40000
 
-  const yScale = scaleBand()
-    .domain(electric.map(yValue))
-    .range([0, innerHeight]);
+  const xScale = scaleBand()
+    .domain(electric.map(xValue))
+    .range([0, innerWidth])
+    .padding(0.2);
 
-  const xScale = scaleLinear()
-    .domain([0, max(electric, xValue)])
-    .range([0, innerWidth]);
+  const yScale = scaleLinear()
+    .domain([0, max(electric, yValue)])
+    .range([innerHeight, 0]);
 
   return <div className="App">
     <Title/>
@@ -50,16 +51,17 @@ function App() {
     <Paragraph text={secondText} name="secondP"/>
     <div>{JSON.stringify(parking[0])}</div>
     <SubTitle subtitle="Welke merken zijn het populairst in Nederland?"/>
-    <svg width={width} height={height}>
-      <g transform={`translate(${margin.left}, ${margin.top})`}>
+    <svg width={width} height={height} >
+      <g transform={`translate(${margin.left},${-margin.bottom})`}>
         <AxisBottom xScale={xScale} innerHeight={innerHeight}/>
-        <AxisLeft yScale={yScale} />
+        <AxisLeft yScale={yScale} innerWidth={innerWidth}/>
         <Bars 
           data={electric} 
           xScale={xScale} 
           yScale={yScale}
           xValue={xValue}
           yValue={yValue}
+          innerHeight={innerHeight}
         />
         </g>
     </svg>

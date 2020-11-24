@@ -1,11 +1,17 @@
-export const AxisLeft = ({ yScale }) => 
-  yScale.domain().map(tickValue => (
-    <text 
-      key={tickValue}
-      style={{textAnchor: "end"}} 
-      x={-3} 
-      dy=".32em" 
-      y={yScale(tickValue) + yScale.bandwidth() / 2}>
-      {tickValue}
-    </text>
+export const AxisLeft = ({ yScale, innerWidth }) => 
+  yScale.ticks().map(tickValue => (
+    <g key={tickValue} transform={`translate(0, ${yScale(tickValue)})`}>
+      <line
+      className="lines"
+        x2={innerWidth}
+        // stroke="black"
+      />
+      <text
+        x={-3} 
+        dy=".32em"
+        style={{textAnchor: "end"}}
+      >
+        {tickValue}
+      </text>
+    </g>
   ))

@@ -1,11 +1,12 @@
-export const AxisBottom = ({ xScale, innerHeight}) =>         
-  xScale.ticks().map(tickValue => (
-  <g key={tickValue} transform={`translate(${xScale(tickValue)}, 0)`}>
-    <line
-      y2={innerHeight} 
-      stroke="black"/>
-    <text y={innerHeight + 3} dy=".71em" style={{textAnchor: 'middle'}}>
+export const AxisBottom = ({ xScale, innerHeight}) =>    
+  xScale.domain().map(tickValue => (
+    <text
+      key={tickValue}
+      x={xScale(tickValue) + xScale.bandwidth() / 2}
+      y={innerHeight + 25}
+      style={{textAnchor: "middle"}}
+      // dy="1em"
+    >
       {tickValue}
     </text>
-  </g>
-));
+  ))

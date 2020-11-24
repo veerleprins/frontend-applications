@@ -25,7 +25,6 @@
   right: 0;
   bottom: -25px;
   visibility: visible;
-
 }
 
 .App .greenColor {
@@ -35,6 +34,14 @@
 .App p {
   width: 50%;
   color: #444444;
+}
+
+.App .bars {
+  fill: #0C9475;
+}
+
+.App .lines {
+  stroke: #C0C0BB;
 }
 
 
