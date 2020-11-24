@@ -11,57 +11,55 @@ export async function fetchData (setParking, setCars, setElectric) {
   toIntegersInObj(locData, 'location', columnArr2);
   const merged = mergeData(specData, locData, ['areaid', 'specifications']);
 
-  const listie = [
-    {merk: 'VOLVO'},
-    {merk: 'BMW'},
-    {merk: 'VOLVO MOTORS'},
-    {merk: 'BMW'},
-    {merk: 'BMW'},
-    {merk: 'VOLVO'},
-    {merk: 'BMW'},
-    {merk: 'VOLVO MOTORS'},
-    {merk: 'BMW'},
-    {merk: 'BMW'}
-  ];
-
-  let carBrands = getBrand(electricCars, 'merk');
+  let carBrands = getItems(electricCars, 'merk', 'MOTORS');
+  // Source: https://stackoverflow.com/questions/28607451/removing-undefined-values-from-array
   carBrands = carBrands.filter( Boolean );
 
-  // Code from Laurens & Sergio:
-
   let uniqueBrands = [];
+  getCount(carBrands, uniqueBrands);
+  sortArray(uniqueBrands);
 
-  carBrands.forEach((merk) => {
-    let brandItem = uniqueBrands.find((item) => item.brand === merk);
-    if (brandItem === undefined) {
-      uniqueBrands.push({
-        brand: merk,
-        value: 0
-      });
-    }
-    uniqueBrands.find((item) => item.brand === merk).value += 1
-  })
-
-  // Code from : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-  uniqueBrands.sort((min, max) => {
-    return max.value - min.value;
-  })
-
-  let val = uniqueBrands.slice(0, 40)
+  const first10Cars = uniqueBrands.slice(0, 10);
 
 
   setParking(merged);
   // setCars(allCars);
-  setElectric(electricCars);
+  setElectric(first10Cars);
 
 
   // setSpecifications(specData);
   // setLocations(locData);
 };
 
-function getBrand (dataArray, column) {
+// This function sorts an array from largest value to smallest value.
+// Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+function sortArray(dataArray) {
+  dataArray.sort((min, max) => {
+    return max.value - min.value;
+  })
+}
+
+
+// Code from Laurens & Sergio:
+// https://vizhub.com/HappyPantss/673013ca00df472da1a3dfa7a6b55aaf?edit=files&file=index.js
+function getCount(dataArray, newArray) {
+  dataArray.forEach((merk) => {
+    let brandItem = newArray.find((item) => item.brand === merk);
+    if (brandItem === undefined) {
+      newArray.push({
+        brand: merk,
+        value: 0
+      });
+    }
+    newArray.find((item) => item.brand === merk).value += 1
+  });
+}
+
+// This function searches for items in a column of an array and returns the item if 
+// it does not contain the specific word.
+function getItems (dataArray, column, word) {
   return dataArray.map(obj => {
-    if (!obj[column].includes('MOTORS')) {
+    if (!obj[column].includes(word)) {
       return obj[column];
     }
   });
