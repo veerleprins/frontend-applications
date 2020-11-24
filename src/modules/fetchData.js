@@ -2,7 +2,7 @@ import { json } from 'd3';
 import { API_1, API_2, API_3, API_4, columnArr1, columnArr2 } from './helpers/utils';
 
 // Code from https://github.com/BVictorB/frontend-applications/blob/master/src/helper/fetchData.js
-export async function fetchData (setParking, setCars, setElectric) {
+export async function fetchData (setParking, setElectric) {
   const specData = await json(API_1);
   const locData = await json(API_2);
   // const allCars = await json(API_3);
@@ -19,7 +19,8 @@ export async function fetchData (setParking, setCars, setElectric) {
   getCount(carBrands, uniqueBrands);
   sortArray(uniqueBrands);
 
-  const first10Cars = uniqueBrands.slice(0, 10);
+  let first10Cars = uniqueBrands.slice(0, 10);
+  console.log(first10Cars);
 
 
   setParking(merged);

@@ -10,6 +10,9 @@ export const API_4 = 'https://opendata.rdw.nl/resource/w4rt-e856.json?$limit=200
 export const columnArr1 = ['chargingpointcapacity', 'capacity', 'disabledaccess', 'maximumvehicleheight'];
 export const columnArr2 = ['latitude', 'longitude'];
 
+export const width = 960;
+export const height = 300;
+
 export const startText = "Elektrisch rijden, u kunt er tegenwoordig al bijna niet meer omheen. Er wordt veel gesproken over de voordelen van het elektrisch rijden in het nieuws. Nu is natuurlijk de vraag: Hoe zit het ondertussen met de cijfers van het elektrisch rijden in Nederland?";
 
 export const secondText = "Uit de cijfers van het RDW blijkt dat er ongeveer 14 miljoen gekentekende auto’s in Nederland rijden. Hiervan is nog maar 1 procent elektrisch. ";

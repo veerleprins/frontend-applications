@@ -1,33 +1,35 @@
 import './App.css';
-import {startText, secondText } from './modules/helpers/utils';
+import {startText, secondText, width, height } from './modules/helpers/utils';
 import { Title } from './Components/Atoms/Title';
 import { Paragraph } from './Components/Atoms/Paragraph';
 import { SubTitle } from './Components/Atoms/SubTitle';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchData } from './modules/fetchData';
+import { scaleBand, scaleLinear, max } from 'd3';
 
 
 function App() {
   // Datasets:
   const [parking, setParking] = useState(null);
-  const [cars, setCars] = useState(null);
   const [electric, setElectric] = useState(null);
 
   useEffect(() => {
-    fetchData(setParking, setCars, setElectric);
+    fetchData(setParking, setElectric);
   }, []);
 
-  if (!parking) {
+  if (!electric) {
     return <div className="App">
-    <Title/>
-    <Paragraph text={startText} name="firstP"/>
-    <SubTitle subtitle="Hoeveel elektrische auto’s rijden er in Nederland?"/>
-    <Paragraph text={secondText} name="secondP"/>
     <p>Loading...</p>
-    <SubTitle subtitle="Welke merken zijn het populairs in Nederland?"/>
-    <SubTitle subtitle="Waar staan de meeste laadpalen in Nederland?"/>
   </div>
   }
+
+  const yScale = scaleBand()
+    .domain(electric.map(d => d.brand))
+    .range([0, height]);
+
+  const xScale = scaleLinear()
+    .domain([0, max(electric, d => d.value)])
+    .range([0, width]);
 
   return <div className="App">
     <Title/>
@@ -36,6 +38,17 @@ function App() {
     <Paragraph text={secondText} name="secondP"/>
     <div>{JSON.stringify(parking[0])}</div>
     <SubTitle subtitle="Welke merken zijn het populairst in Nederland?"/>
+    <svg width={width} height={height}>
+      {electric.map(d => 
+        (<rect 
+          key={d.brand} 
+          x={0}
+          y={yScale(d.brand)} 
+          width={xScale(d.value)} 
+          height={yScale.bandwidth()}
+          />
+        ))}
+    </svg>
     <SubTitle subtitle="Waar staan de meeste laadpalen in Nederland?"/>
   </div>
 }
