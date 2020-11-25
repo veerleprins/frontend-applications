@@ -1,24 +1,30 @@
 import { json } from 'd3';
-import { API_1, API_2, API_3, API_4, columnArr1, columnArr2 } from './helpers/utils';
+import { API_1, API_2, API_3, API_4 } from './helpers/utils';
 import { feature } from 'topojson';
+import { startCleaning } from './cleanData';
 
 // Endpoint from Merlijn: https://github.com/mbergevoet/frontend-data/blob/master/frontend-data/index.js
 const endpoint = 'https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson';
-let towns;
 
 // Code from https://github.com/BVictorB/frontend-applications/blob/master/src/helper/fetchData.js
-export async function fetchData (setParking, setElectric, setMap) {
+export async function fetchData (setGarages, 
+  setElectric, 
+  setMap, 
+  setChargingGarages, 
+  setCountElectric, 
+  setAllCars) 
+  {
+  // Getting all the data for the visualizations:
   const specData = await json(API_1);
   const locData = await json(API_2);
-  // const allCars = await json(API_3);
+  const allCars = await json(API_3);
   const electricCars = await json(API_4);
   const GEOdata = await json(endpoint);
-  towns = feature(GEOdata, GEOdata.objects.gemeente_2020);
-  console.log(GEOdata.objects.gemeente_2020);
-  console.log(towns);
-  toNumbers(specData, columnArr1);
-  toIntegersInObj(locData, 'location', columnArr2);
-  const merged = mergeData(specData, locData, ['areaid', 'specifications']);
+
+  let towns = feature(GEOdata, GEOdata.objects.gemeente_2020);
+
+  let allGarages = startCleaning(specData, locData);
+  let chargingGarages = filterObjects(allGarages, ['specifications', 'chargingpointcapacity']);
 
   let carBrands = getItems(electricCars, 'merk', 'MOTORS');
   // Source: https://stackoverflow.com/questions/28607451/removing-undefined-values-from-array
@@ -28,14 +34,22 @@ export async function fetchData (setParking, setElectric, setMap) {
   getCount(carBrands, uniqueBrands);
   sortArray(uniqueBrands);
 
-  let first10Cars = uniqueBrands.slice(0, 10);
-
-
-  setParking(merged);
-  // setCars(allCars);
-  setElectric(first10Cars);
+  // Setting all the states:
+  setGarages(allGarages);
+  setCountElectric(carBrands.length);
+  setChargingGarages(chargingGarages);
+  setAllCars(+(allCars[0].count));
+  setElectric(uniqueBrands.slice(0, 10));
   setMap(towns.features);
 };
+
+function filterObjects(dataArray, arr) {
+  let newList = dataArray.map(obj => {
+    if (obj[arr[0]][arr[1]] !== 0)
+    return obj;
+  })
+  return newList.filter( Boolean );
+}
 
 // This function sorts an array from largest value to smallest value.
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -68,30 +82,5 @@ function getItems (dataArray, column, word) {
     if (!obj[column].includes(word)) {
       return obj[column];
     }
-  });
-}
-
-//This function has as parameters the total data set and an array
-// of columns and changes each item of the column to a integer or float:
-function toNumbers(dataArray, columnArr) {
-  return dataArray.forEach(arrItem => {
-    columnArr.forEach(c => {arrItem[c] = +arrItem[c];});
-  });
-};
-
-// This function changes the values within an object that is inside
-// an object to integers or floats:
-export function toIntegersInObj(dataArray, objName, columnArr) {
-  return dataArray.forEach(arrItem => {
-    columnArr.forEach(c => {arrItem[objName][c] = +arrItem[objName][c];});
-  });
-}
-
-// This function merges two datasets together:
-export function mergeData(dataset1, dataset2, itemArr) {
-  return dataset2.map(obj1 => {
-    const filtered = dataset1.find(obj2 => obj1[itemArr[0]] === obj2[itemArr[0]]);
-    obj1[itemArr[1]] = filtered;
-    return obj1;
   });
 }

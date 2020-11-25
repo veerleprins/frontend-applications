@@ -15,12 +15,15 @@ const innerWidth = width - margin.left - margin.right;
 
 function App() {
   // Datasets:
-  const [parking, setParking] = useState(null);
+  const [garages, setGarages] = useState(null);
+  const [chargingGarages, setChargingGarages] = useState(null);
   const [electric, setElectric] = useState(null);
   const [map, setMap] = useState(null);
+  const [countElectric, setCountElectric] = useState(null);
+  const [allCars, setAllCars] = useState(null);
 
   useEffect(() => {
-    fetchData(setParking, setElectric, setMap);
+    fetchData(setGarages, setElectric, setMap, setChargingGarages, setCountElectric, setAllCars);
   }, []);
 
   if (!map) {
@@ -28,7 +31,6 @@ function App() {
     <p>Loading...</p>
   </div>
   }
-
   // D3 BarChart with help from Curran Kelleher.
   // Source: https://www.youtube.com/watch?v=y03s9MEx6mc&list=PL9yYRbwpkykuK6LSMLH3bAaPpXaDUXcLV&index=23
 
@@ -49,7 +51,10 @@ function App() {
     <Paragraph text={startText} name="firstP"/>
     <SubTitle subtitle="Hoeveel elektrische auto’s rijden er in Nederland?"/>
     <Paragraph text={secondText} name="secondP"/>
-    <div>{JSON.stringify(parking[0])}</div>
+    <Paragraph text={JSON.stringify(allCars)} name="bigGreen"/>
+    <Paragraph text="Auto's in Nederland" name="shortT"/>
+    <Paragraph text={JSON.stringify(countElectric)} name="bigGreen"/>
+    <Paragraph text="Elektrische auto's in Nederland" name="shortT"/>
     <SubTitle subtitle="Welke merken zijn het populairst in Nederland?"/>
     <BarChart 
       data={electric} 
@@ -58,10 +63,10 @@ function App() {
       innerHeight={innerHeight}
       innerWidth={innerWidth}
       xValue={xValue}
-      yValue={yValue} />
-    <SubTitle subtitle="Waar staan de meeste laadpalen in Nederland?"/>
+      yValue={yValue}/>
+    <SubTitle subtitle="Waar staan de laadpalen in Nederland?"/>
     <svg width={width} height={height} >
-      <Cities data={map}/>
+      <Cities data={map} garages={garages} chargingPoints={chargingGarages} />
     </svg>
   </div>
 }

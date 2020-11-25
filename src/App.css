@@ -1,5 +1,5 @@
 .App {
-  padding: 0px 150px;
+  padding: 0px 100px;
 }
 
 .App h1 {
@@ -7,6 +7,7 @@
   font-family: Oswald;
   font-size: 48px;
 }
+
 
 .App h2 {
   color: #444444;
@@ -31,6 +32,12 @@
   color: #0C9475;
 }
 
+.App .bigGreen {
+  color: #0C9475;
+  font-size: 3em;
+  font-weight: bold;
+}
+
 .App p {
   width: 50%;
   color: #444444;
@@ -46,6 +53,20 @@
 
 .App .city {
   fill: #E9E9E9;
+}
+
+.App .garages {
+  fill: #1C4B77;
+}
+.App .tooltip {
+  padding: 1em;
+  position: fixed;
+  background-color: white;
+  pointer-events: none;
+}
+
+.App .chargingpoints {
+  fill: #0C9475;
 }
 
 @media (prefers-reduced-motion: no-preference) {

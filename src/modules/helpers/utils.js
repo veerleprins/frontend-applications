@@ -10,10 +10,10 @@ export const API_4 = 'https://opendata.rdw.nl/resource/w4rt-e856.json?$limit=200
 export const columnArr1 = ['chargingpointcapacity', 'capacity', 'disabledaccess', 'maximumvehicleheight'];
 export const columnArr2 = ['latitude', 'longitude'];
 
-export const width = 960;
-export const height = 550;
+export const width = 980;
+export const height = 500;
 export const margin = {
-  top: 30, right: 50, bottom: 50, left: 120
+  top: 0, right: 50, bottom: 40, left: 120
 }
 
 export const startText = "Elektrisch rijden, u kunt er tegenwoordig al bijna niet meer omheen. Er wordt veel gesproken over de voordelen van het elektrisch rijden in het nieuws. Nu is natuurlijk de vraag: Hoe zit het ondertussen met de cijfers van het elektrisch rijden in Nederland?";
