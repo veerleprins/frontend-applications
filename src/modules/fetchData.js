@@ -65,7 +65,6 @@ function getItems (dataArray, column, word) {
   });
 }
 
-
 //This function has as parameters the total data set and an array
 // of columns and changes each item of the column to a integer or float:
 function toNumbers(dataArray, columnArr) {

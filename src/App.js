@@ -5,10 +5,8 @@ import { Paragraph } from './Components/Atoms/Paragraph';
 import { SubTitle } from './Components/Atoms/SubTitle';
 import React, { useEffect, useState } from 'react';
 import { fetchData } from './modules/fetchData';
-import { scaleBand, scaleLinear, max, format } from 'd3';
-import { AxisBottom } from './Components/Atoms/AxisBottom';
-import { AxisLeft } from './Components/Atoms/AxisLeft';
-import { Bars } from './Components/Atoms/Bars';
+import { scaleBand, scaleLinear, max } from 'd3';
+import { BarChart } from './Components/Molecules/BarChart';
 
 const innerHeight = height - margin.top - margin.bottom;
 const innerWidth = width - margin.left - margin.right;
@@ -51,33 +49,14 @@ function App() {
     <Paragraph text={secondText} name="secondP"/>
     <div>{JSON.stringify(parking[0])}</div>
     <SubTitle subtitle="Welke merken zijn het populairst in Nederland?"/>
-    <svg width={width} height={height} >
-      <g transform={`translate(${margin.left},${-margin.bottom})`}>
-        <g className="x-Axis">
-          <AxisBottom 
-            xScale={xScale} 
-            innerHeight={innerHeight}
-          />
-        </g>
-        <AxisLeft yScale={yScale} innerWidth={innerWidth} tickFormat={n => format(",d")(n).replace(',', '.')}/>
-        <text
-          y={-80}
-          textAnchor='middle'
-          x={- innerHeight / 2}
-          transform={`rotate(-90)`}
-        >
-          Aantal auto's
-        </text>
-        <Bars 
-          data={electric} 
-          xScale={xScale} 
-          yScale={yScale}
-          xValue={xValue}
-          yValue={yValue}
-          innerHeight={innerHeight}
-        />
-        </g>
-    </svg>
+    <BarChart 
+      data={electric} 
+      xScale={xScale}
+      yScale={yScale}
+      innerHeight={innerHeight}
+      innerWidth={innerWidth}
+      xValue={xValue}
+      yValue={yValue} />
     <SubTitle subtitle="Waar staan de meeste laadpalen in Nederland?"/>
   </div>
 }
