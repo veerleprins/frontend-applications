@@ -20,7 +20,6 @@ export async function fetchData (setParking, setElectric) {
   sortArray(uniqueBrands);
 
   let first10Cars = uniqueBrands.slice(0, 10);
-  console.log(first10Cars);
 
 
   setParking(merged);

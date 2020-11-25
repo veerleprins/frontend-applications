@@ -2,9 +2,10 @@ export const AxisBottom = ({ xScale, innerHeight}) =>
   xScale.domain().map(tickValue => (
     <text
       key={tickValue}
-      x={xScale(tickValue) + xScale.bandwidth() / 2}
-      y={innerHeight + 25}
-      style={{textAnchor: "middle"}}
+      y={xScale(tickValue) + xScale.bandwidth() / 2}
+      x={- innerHeight - 10}
+      style={{textAnchor: "end"}}
+      transform={`rotate(-90)`}
       // dy="1em"
     >
       {tickValue}
