@@ -6,7 +6,6 @@ export const AxisBottom = ({ xScale, innerHeight}) =>
       x={- innerHeight - 10}
       style={{textAnchor: "end"}}
       transform={`rotate(-90)`}
-      // dy="1em"
     >
       {tickValue}
     </text>

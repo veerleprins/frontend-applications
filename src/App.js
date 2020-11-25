@@ -1,12 +1,13 @@
 import './App.css';
 import {startText, secondText, width, height, margin } from './modules/helpers/utils';
-import { Title } from './Components/Atoms/Title';
-import { Paragraph } from './Components/Atoms/Paragraph';
-import { SubTitle } from './Components/Atoms/SubTitle';
+import { Title } from './Components/atoms/Title';
+import { Paragraph } from './Components/atoms/Paragraph';
+import { SubTitle } from './Components/atoms/SubTitle';
 import React, { useEffect, useState } from 'react';
 import { fetchData } from './modules/fetchData';
 import { scaleBand, scaleLinear, max } from 'd3';
-import { BarChart } from './Components/Molecules/BarChart';
+import { BarChart } from './Components/molecules/BarChart';
+import { Cities } from './Components/atoms/Cities';
 
 const innerHeight = height - margin.top - margin.bottom;
 const innerWidth = width - margin.left - margin.right;
@@ -16,12 +17,13 @@ function App() {
   // Datasets:
   const [parking, setParking] = useState(null);
   const [electric, setElectric] = useState(null);
+  const [map, setMap] = useState(null);
 
   useEffect(() => {
-    fetchData(setParking, setElectric);
+    fetchData(setParking, setElectric, setMap);
   }, []);
 
-  if (!electric) {
+  if (!map) {
     return <div className="App">
     <p>Loading...</p>
   </div>
@@ -58,6 +60,9 @@ function App() {
       xValue={xValue}
       yValue={yValue} />
     <SubTitle subtitle="Waar staan de meeste laadpalen in Nederland?"/>
+    <svg width={width} height={height} >
+      <Cities data={map}/>
+    </svg>
   </div>
 }
  export default App;

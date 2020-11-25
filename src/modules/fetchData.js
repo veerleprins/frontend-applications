@@ -1,12 +1,21 @@
 import { json } from 'd3';
 import { API_1, API_2, API_3, API_4, columnArr1, columnArr2 } from './helpers/utils';
+import { feature } from 'topojson';
+
+// Endpoint from Merlijn: https://github.com/mbergevoet/frontend-data/blob/master/frontend-data/index.js
+const endpoint = 'https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson';
+let towns;
 
 // Code from https://github.com/BVictorB/frontend-applications/blob/master/src/helper/fetchData.js
-export async function fetchData (setParking, setElectric) {
+export async function fetchData (setParking, setElectric, setMap) {
   const specData = await json(API_1);
   const locData = await json(API_2);
   // const allCars = await json(API_3);
   const electricCars = await json(API_4);
+  const GEOdata = await json(endpoint);
+  towns = feature(GEOdata, GEOdata.objects.gemeente_2020);
+  console.log(GEOdata.objects.gemeente_2020);
+  console.log(towns);
   toNumbers(specData, columnArr1);
   toIntegersInObj(locData, 'location', columnArr2);
   const merged = mergeData(specData, locData, ['areaid', 'specifications']);
@@ -25,10 +34,7 @@ export async function fetchData (setParking, setElectric) {
   setParking(merged);
   // setCars(allCars);
   setElectric(first10Cars);
-
-
-  // setSpecifications(specData);
-  // setLocations(locData);
+  setMap(towns.features);
 };
 
 // This function sorts an array from largest value to smallest value.

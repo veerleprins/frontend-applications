@@ -4,7 +4,6 @@ export const AxisLeft = ({ yScale, innerWidth, tickFormat }) =>
       <line
       className="lines"
         x2={innerWidth}
-        // stroke="black"
       />
       <text
         x={-3} 

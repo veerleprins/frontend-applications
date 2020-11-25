@@ -1,7 +1,7 @@
 import { margin, width, height } from '../../modules/helpers/utils';
-import { AxisBottom } from '../Atoms/AxisBottom';
-import { AxisLeft } from '../Atoms/AxisLeft';
-import { Bars } from '../Atoms/Bars';
+import { AxisBottom } from '../atoms/AxisBottom';
+import { AxisLeft } from '../atoms/AxisLeft';
+import { Bars } from '../atoms/Bars';
 import { format } from 'd3';
 
 export const BarChart = ({

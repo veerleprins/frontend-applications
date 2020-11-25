@@ -44,6 +44,9 @@
   stroke: #C0C0BB;
 }
 
+.App .city {
+  fill: #E9E9E9;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -53,7 +56,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
