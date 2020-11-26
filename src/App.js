@@ -1,13 +1,14 @@
 import './App.css';
 import {startText, secondText, width, height, margin } from './modules/helpers/utils';
-import { Title } from './components/atoms/Title';
-import { Paragraph } from './components/atoms/Paragraph';
 import { SubTitle } from './components/atoms/SubTitle';
 import React, { useEffect, useState } from 'react';
 import { fetchData } from './modules/fetchData';
 import { scaleBand, scaleLinear, max } from 'd3';
 import { BarChart } from './components/molecules/BarChart';
 import { Cities } from './components/atoms/Cities';
+import { HeaderTitle } from './components/atoms/HeaderTitle';
+import { Paragraph } from './components/atoms/Paragraph';
+
 
 const innerHeight = height - margin.top - margin.bottom;
 const innerWidth = width - margin.left - margin.right;
@@ -47,7 +48,7 @@ function App() {
     .range([innerHeight, 0]);
 
   return <div className="App">
-    <Title/>
+    <HeaderTitle/>
     <Paragraph text={startText} name="firstP"/>
     <SubTitle subtitle="Hoeveel elektrische auto’s rijden er in Nederland?"/>
     <Paragraph text={secondText} name="secondP"/>
