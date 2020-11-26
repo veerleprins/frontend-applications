@@ -1,13 +1,13 @@
 import './App.css';
-import {startText, secondText, width, height, margin } from './modules/helpers/utils';
-import { SubTitle } from './components/atoms/SubTitle';
+import {startText, secondText, width, height, margin } from './modules/helpers/utils.js';
+import { HeaderTitle } from './components/atoms/HeaderTitle.js';
+import { Paragraph } from './components/atoms/Paragraph.js';
+import { SubHeading } from './components/atoms/SubHeading.js';
 import React, { useEffect, useState } from 'react';
-import { fetchData } from './modules/fetchData';
+import { fetchData } from './modules/fetchData.js';
 import { scaleBand, scaleLinear, max } from 'd3';
-import { BarChart } from './components/molecules/BarChart';
-import { Cities } from './components/atoms/Cities';
-import { HeaderTitle } from './components/atoms/HeaderTitle';
-import { Paragraph } from './components/atoms/Paragraph';
+import { BarChart } from './components/molecules/BarChart.js';
+import { Cities } from './components/atoms/Cities.js';
 
 
 const innerHeight = height - margin.top - margin.bottom;
@@ -50,13 +50,13 @@ function App() {
   return <div className="App">
     <HeaderTitle/>
     <Paragraph text={startText} name="firstP"/>
-    <SubTitle subtitle="Hoeveel elektrische auto’s rijden er in Nederland?"/>
+    <SubHeading subtitle="Hoeveel elektrische auto’s rijden er in Nederland?"/>
     <Paragraph text={secondText} name="secondP"/>
     <Paragraph text={JSON.stringify(allCars)} name="bigGreen"/>
     <Paragraph text="Auto's in Nederland" name="shortT"/>
     <Paragraph text={JSON.stringify(countElectric)} name="bigGreen"/>
     <Paragraph text="Elektrische auto's in Nederland" name="shortT"/>
-    <SubTitle subtitle="Welke merken zijn het populairst in Nederland?"/>
+    <SubHeading subtitle="Welke merken zijn het populairst in Nederland?"/>
     <BarChart 
       data={electric} 
       xScale={xScale}
@@ -65,7 +65,7 @@ function App() {
       innerWidth={innerWidth}
       xValue={xValue}
       yValue={yValue}/>
-    <SubTitle subtitle="Waar staan de laadpalen in Nederland?"/>
+    <SubHeading subtitle="Waar staan de laadpalen in Nederland?"/>
     <svg width={width} height={height} >
       <Cities data={map} garages={garages} chargingPoints={chargingGarages} />
     </svg>
