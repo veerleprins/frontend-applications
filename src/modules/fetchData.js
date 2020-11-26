@@ -83,7 +83,7 @@ function getCount(dataArray, newArray) {
 // This function searches for items in a column of an array and returns 
 // the item if it does not contain the specific word.
 function getItems (dataArray, column, word) {
-  let list =  dataArray.map(obj => {
+  let list =  dataArray.map((obj) => {
     return (!obj[column].includes(word)) ? obj[column] : false;
   });
   return list.filter(Boolean);

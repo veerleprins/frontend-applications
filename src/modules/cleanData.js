@@ -5,16 +5,14 @@ export function startCleaning (specData, locData) {
   toNumbers(specData, columnArr1);
   toIntegersInObj(locData, 'location', columnArr2);
   const merged = mergeData(specData, locData, ['areaid', 'specifications']);
-  return removeUndef(merged, 'specifications')
+  return removeUndef(merged, 'specifications');
 };
 
 function removeUndef(dataArray, column) {
-  let lijstje = dataArray.map((obj) => {
-    if (obj[column] !== undefined) {
-      return obj
-    }
+  let newArray = dataArray.map((obj) => {
+    return (obj[column] !== undefined ) ? obj : false
   })
-  return lijstje.filter(Boolean)
+  return newArray.filter(Boolean);
 }
 
 //This function has as parameters the total data set and an array
