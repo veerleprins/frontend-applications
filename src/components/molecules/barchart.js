@@ -1,5 +1,5 @@
 import { margin, width, height } from '../../modules/helpers/utils';
-import { AxisBottom } from '../atoms/axisbottom';
+import { AxisBottom } from '../atoms/AxisBottom';
 import { AxisLeft } from '../atoms/axisleft';
 import { Bars } from '../atoms/bars';
 import { format } from 'd3';
