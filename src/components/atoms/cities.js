@@ -23,6 +23,7 @@ export const Cities = ({ data, garages, chargingPoints }) =>
     const [x, y] = projection([d.location.longitude, d.location.latitude]);
     return (
       <circle
+        key={d.areaid}
         className="garages" 
         cx={x} 
         cy={y} 
@@ -34,6 +35,7 @@ export const Cities = ({ data, garages, chargingPoints }) =>
     const [x1, y2] = projection([d.location.longitude, d.location.latitude]);
     return (
       <circle
+        key={d.areadesc}
         className="chargingpoints" 
         cx={x1} 
         cy={y2} 

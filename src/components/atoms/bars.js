@@ -1,7 +1,5 @@
-import { useState } from 'react';
 export const Bars = ({ data, yScale, xScale, xValue, yValue, innerHeight }) => 
 { 
-  const [isShown, setIsShown] = useState(null);
   return (
     <>
     {data.map(d => (
@@ -13,7 +11,7 @@ export const Bars = ({ data, yScale, xScale, xValue, yValue, innerHeight }) =>
         y={yScale(yValue(d))}
         height={innerHeight - yScale(yValue(d))}
         width={xScale.bandwidth()}
-        onClick={() => {setIsShown(true)
+        onClick={() => {
           console.log(xValue(d), yValue(d))
         }}
       />
