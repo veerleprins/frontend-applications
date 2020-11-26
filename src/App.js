@@ -1,13 +1,13 @@
 import './App.css';
 import {startText, secondText, width, height, margin } from './modules/helpers/utils.js';
-import { HeaderTitle } from './components/atoms/headertitle.js.js';
-import { Paragraph } from './components/atoms/paragraph.js.js';
-import { SubHeading } from './components/atoms/subheading.js.js';
+import { HeaderTitle } from './components/atomss/headertitle.js.js.js';
+import { Paragraph } from './components/atomss/paragraph.js.js.js';
+import { SubHeading } from './components/atomss/subheading.js.js.js';
 import React, { useEffect, useState } from 'react';
 import { fetchData } from './modules/fetchData.js';
 import { scaleBand, scaleLinear, max } from 'd3';
 import { BarChart } from './components/molecules/barchart.js.js';
-import { Cities } from './components/atoms/cities.js.js';
+import { Cities } from './components/atomss/cities.js.js.js';
 
 
 const innerHeight = height - margin.top - margin.bottom;
