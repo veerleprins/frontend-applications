@@ -2,16 +2,29 @@ import { margin, width, height } from '../../modules/helpers/utils';
 import { AxisBottom } from '../atoms/axisbottom';
 import { AxisLeft } from '../atoms/axisleft';
 import { Bars } from '../atoms/bars';
-import { format } from 'd3';
+import { format, scaleBand, scaleLinear, max  } from 'd3';
 
-export const BarChart = ({
-  data, 
-  xScale, 
-  yScale, 
-  innerHeight, 
-  innerWidth,
-  xValue,
-  yValue }) => (
+// D3 BarChart with help from Curran Kelleher.
+// Source: https://www.youtube.com/watch?v=y03s9MEx6mc&list=PL9yYRbwpkykuK6LSMLH3bAaPpXaDUXcLV&index=23
+
+export const BarChart = ({ data }) => {
+
+    const innerHeight = height - margin.top - margin.bottom;
+    const innerWidth = width - margin.left - margin.right;
+
+    const xValue = d => d.brand; //TESLA
+    const yValue = d => d.value; //40000
+
+    const xScale = scaleBand()
+      .domain(data.map(xValue))
+      .range([0, innerWidth])
+      .padding(0.2);
+
+    const yScale = scaleLinear()
+      .domain([0, max(data, yValue)])
+      .range([innerHeight, 0]);
+    
+    return (
     <svg width={width} height={height} >
     <g transform={`translate(${margin.left},${-margin.bottom})`}>
       <g className="x-Axis">
@@ -40,4 +53,4 @@ export const BarChart = ({
       />
       </g>
   </svg>
-)
+)}

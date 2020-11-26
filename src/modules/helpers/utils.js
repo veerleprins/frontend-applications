@@ -20,6 +20,8 @@ export const startText = "Elektrisch rijden, u kunt er tegenwoordig al bijna nie
 
 export const secondText = "Uit de cijfers van het RDW blijkt dat er ongeveer 14 miljoen gekentekende auto’s in Nederland rijden. Hiervan is nog maar 1 procent elektrisch. ";
 
+export const thirdText = "Van deze 1 procent elektrische auto's in Nederland, zijn de 10 meest populaire auto's weergegeven. Wat opvalt is dat Tesla veruit het meest populair is onder de gekentekende, elektrische auto's in Nederland."
+
 // The array with column names for the datasets that needs to be merged:
 export const mergeColumns = ['areaid', 'specifications'];
 

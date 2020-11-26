@@ -1,18 +1,12 @@
 import './App.css';
-import {startText, secondText, width, height, margin } from './modules/helpers/utils.js';
-import { HeaderTitle } from './components/atoms/headertitle.js';
-import { Paragraph } from './components/atoms/paragraph.js';
-import { SubHeading } from './components/atoms/subheading.js';
 import React, { useEffect, useState } from 'react';
 import { fetchData } from './modules/fetchData.js';
-import { scaleBand, scaleLinear, max } from 'd3';
-import { BarChart } from './components/molecules/barchart.js';
+import { HeaderText } from './components/organisms/headertext';
+import { width, height } from './modules/helpers/utils.js';
+import { SubHeading } from './components/atoms/subheading.js';
 import { Cities } from './components/atoms/cities.js';
-
-
-const innerHeight = height - margin.top - margin.bottom;
-const innerWidth = width - margin.left - margin.right;
-
+import { FirstArticle } from './components/organisms/firstarticle';
+import { SecondArticle } from './components/organisms/secondarticle';
 
 function App() {
   // Datasets:
@@ -32,39 +26,11 @@ function App() {
     <p>Loading...</p>
   </div>
   }
-  // D3 BarChart with help from Curran Kelleher.
-  // Source: https://www.youtube.com/watch?v=y03s9MEx6mc&list=PL9yYRbwpkykuK6LSMLH3bAaPpXaDUXcLV&index=23
-
-  const xValue = d => d.brand; //TESLA
-  const yValue = d => d.value; //40000
-
-  const xScale = scaleBand()
-    .domain(electric.map(xValue))
-    .range([0, innerWidth])
-    .padding(0.2);
-
-  const yScale = scaleLinear()
-    .domain([0, max(electric, yValue)])
-    .range([innerHeight, 0]);
 
   return <div className="App">
-    <HeaderTitle/>
-    <Paragraph text={startText} name="firstP"/>
-    <SubHeading subtitle="Hoeveel elektrische auto’s rijden er in Nederland?"/>
-    <Paragraph text={secondText} name="secondP"/>
-    <Paragraph text={JSON.stringify(allCars)} name="bigGreen"/>
-    <Paragraph text="Auto's in Nederland" name="shortT"/>
-    <Paragraph text={JSON.stringify(countElectric)} name="bigGreen"/>
-    <Paragraph text="Elektrische auto's in Nederland" name="shortT"/>
-    <SubHeading subtitle="Welke merken zijn het populairst in Nederland?"/>
-    <BarChart 
-      data={electric} 
-      xScale={xScale}
-      yScale={yScale}
-      innerHeight={innerHeight}
-      innerWidth={innerWidth}
-      xValue={xValue}
-      yValue={yValue}/>
+    <HeaderText/>
+    <FirstArticle allCars={allCars} countElectric={countElectric}/>
+    <SecondArticle data={electric}/>
     <SubHeading subtitle="Waar staan de laadpalen in Nederland?"/>
     <svg width={width} height={height} >
       <Cities data={map} garages={garages} chargingPoints={chargingGarages} />
