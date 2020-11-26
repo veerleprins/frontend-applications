@@ -25,10 +25,7 @@ export async function fetchData (setGarages,
 
   let allGarages = startCleaning(specData, locData);
   let chargingGarages = filterObjects(allGarages, ['specifications', 'chargingpointcapacity']);
-
   let carBrands = getItems(electricCars, 'merk', 'MOTORS');
-  // Source: https://stackoverflow.com/questions/28607451/removing-undefined-values-from-array
-  carBrands = carBrands.filter( Boolean );
 
   let uniqueBrands = [];
   getCount(carBrands, uniqueBrands);
@@ -43,12 +40,20 @@ export async function fetchData (setGarages,
   setMap(towns.features);
 };
 
+// This function filters through a array and returns the filtered list 
+// without the false values:
+// .filter( Boolean ) from source:
+// https://stackoverflow.com/questions/28607451/removing-undefined-values-from-array
 function filterObjects(dataArray, arr) {
-  let newList = dataArray.map(obj => {
-    if (obj[arr[0]][arr[1]] !== 0)
-    return obj;
+  let newList = dataArray.map((obj) => {
+    let c = obj[arr[0]][arr[1]];
+    return checkObjects(c, obj);
   })
   return newList.filter( Boolean );
+}
+
+function checkObjects (column, obj) {
+  return (column !== 0) ? obj : false
 }
 
 // This function sorts an array from largest value to smallest value.
@@ -75,12 +80,11 @@ function getCount(dataArray, newArray) {
   });
 }
 
-// This function searches for items in a column of an array and returns the item if 
-// it does not contain the specific word.
+// This function searches for items in a column of an array and returns 
+// the item if it does not contain the specific word.
 function getItems (dataArray, column, word) {
-  return dataArray.map(obj => {
-    if (!obj[column].includes(word)) {
-      return obj[column];
-    }
+  let list =  dataArray.map(obj => {
+    return (!obj[column].includes(word)) ? obj[column] : false;
   });
+  return list.filter(Boolean);
 }

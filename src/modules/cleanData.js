@@ -9,12 +9,12 @@ export function startCleaning (specData, locData) {
 };
 
 function removeUndef(dataArray, column) {
-  let lijstje = dataArray.map(obj => {
+  let lijstje = dataArray.map((obj) => {
     if (obj[column] !== undefined) {
-      return obj;
+      return obj
     }
   })
-  return lijstje.filter( Boolean );
+  return lijstje.filter(Boolean)
 }
 
 //This function has as parameters the total data set and an array
