@@ -11,7 +11,7 @@ export const columnArr1 = ['chargingpointcapacity', 'capacity', 'disabledaccess'
 export const columnArr2 = ['latitude', 'longitude'];
 
 export const width = 980;
-export const height = 500;
+export const height = 550;
 export const margin = {
   top: 0, right: 50, bottom: 40, left: 120
 }
@@ -21,6 +21,8 @@ export const startText = "Elektrisch rijden, u kunt er tegenwoordig al bijna nie
 export const secondText = "Uit de cijfers van het RDW blijkt dat er ongeveer 14 miljoen gekentekende auto’s in Nederland rijden. Hiervan is nog maar 1 procent elektrisch. ";
 
 export const thirdText = "Van deze 1 procent elektrische auto's in Nederland, zijn de 10 meest populaire auto's weergegeven. Wat opvalt is dat Tesla veruit het meest populair is onder de gekentekende, elektrische auto's in Nederland."
+
+export const lastText = "Ondanks dat maar 1 procent van alle gekentekende auto's uit het RDW elektrisch is, zijn dit toch ongeveer 146 duizend auto's. Wanneer de eigenaren deze zouden willen opladen in de Nederlandse garages, moet dit natuurlijk wel mogelijk zijn. Hieronder zijn in het rood alle parkeergarages weergegeven die bekend zijn bij het RDW. Alle groene punten zijn de parkeergarages die 1 of meer oplaadpalen beschikbaar hebben voor het opladen van een elektrische auto.";
 
 // The array with column names for the datasets that needs to be merged:
 export const mergeColumns = ['areaid', 'specifications'];

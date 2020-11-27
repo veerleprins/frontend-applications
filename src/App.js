@@ -2,11 +2,12 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import { fetchData } from './modules/fetchData.js';
 import { HeaderText } from './components/organisms/headertext';
-import { width, height } from './modules/helpers/utils.js';
 import { SubHeading } from './components/atoms/subheading.js';
-import { Cities } from './components/atoms/cities.js';
+import { DutchMap } from './components/molecules/dutchmap.js';
 import { FirstArticle } from './components/organisms/firstarticle';
 import { SecondArticle } from './components/organisms/secondarticle';
+import { Paragraph } from './components/atoms/paragraph';
+import { lastText } from './modules/helpers/utils';
 
 function App() {
   // Datasets:
@@ -18,13 +19,24 @@ function App() {
   const [allCars, setAllCars] = useState(null);
 
   useEffect(() => {
-    fetchData(setGarages, setElectric, setMap, setChargingGarages, setCountElectric, setAllCars);
+    fetchData(setGarages, 
+      setElectric, 
+      setMap, 
+      setChargingGarages, 
+      setCountElectric, 
+      setAllCars);
   }, []);
 
+  useEffect(() => {
+    <DutchMap data={map} garages={garages} chargingPoints={chargingGarages}/>
+  }, [map, garages, chargingGarages]);
+
   if (!map) {
-    return <div className="App">
-    <p>Loading...</p>
-  </div>
+    return (
+      <div>
+        Loading...
+      </div>
+    )
   }
 
   return <div className="App">
@@ -32,9 +44,8 @@ function App() {
     <FirstArticle allCars={allCars} countElectric={countElectric}/>
     <SecondArticle data={electric}/>
     <SubHeading subtitle="Waar staan de laadpalen in Nederland?"/>
-    <svg width={width} height={height} >
-      <Cities data={map} garages={garages} chargingPoints={chargingGarages} />
-    </svg>
+    <Paragraph text={lastText} name="lastP"/>
+    <DutchMap data={map} garages={garages} chargingPoints={chargingGarages} />
   </div>
 }
  export default App;
