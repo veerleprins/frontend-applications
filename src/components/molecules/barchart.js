@@ -26,7 +26,7 @@ export const BarChart = ({ data }) => {
     
     return (
     <svg width={width} height={height} >
-    <g transform={`translate(${margin.left},${-margin.bottom})`}>
+    <g transform={`translate(${margin.left},${margin.top})`}>
       <g className="x-Axis">
         <AxisBottom 
           xScale={xScale} 

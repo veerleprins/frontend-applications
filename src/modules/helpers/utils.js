@@ -13,7 +13,7 @@ export const columnArr2 = ['latitude', 'longitude'];
 export const width = 980;
 export const height = 550;
 export const margin = {
-  top: 0, right: 50, bottom: 40, left: 120
+  top: 40, right: 50, bottom: 120, left: 120
 }
 
 export const startText = "Elektrisch rijden, u kunt er tegenwoordig al bijna niet meer omheen. Er wordt veel gesproken over de voordelen van het elektrisch rijden in het nieuws. Nu is natuurlijk de vraag: Hoe zit het ondertussen met de cijfers van het elektrisch rijden in Nederland?";
