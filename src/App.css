@@ -1,71 +1,107 @@
-.App {
-  padding: 0px 150px;
+h1, h2, h3, p {
+  font-family: Inter;
+  color: white;
 }
 
-.App h1 {
-  color: #444444;
-  font-family: Oswald;
-  font-size: 48px;
+h1 {
+  font-size: 120px;
+  margin: 0px;
+  margin-bottom: 100px;
 }
 
-.App h2 {
-  color: #444444;
-  font-size: 32px;
-  position: relative;
-  margin-bottom: 40px;
-  margin-top: 100px;
+h2 {
+  font-size: 65px;
+  text-align: center;
 }
 
-.App h2::after {
-  content: "";
-  border-top: 2px solid#444444;
-  width: 60%;
-  color: transparent;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -25px;
-  visibility: visible;
+h3 {
+  font-size: 35px;
+  text-align: center;
 }
 
-.App .greenColor {
-  color: #0C9475;
+p {
+  font-size: 20px;
 }
 
-.App .bigGreen {
-  color: #0C9475;
-  font-size: 3em;
-  font-weight: bold;
+section {
+  margin-bottom: 100vh;
 }
 
-.App p {
+footer {
+  background-color: #054522;
+  width: 100vw;
+  height: 20vh;
+}
+
+.firstP {
+  max-width: 700px;
+}
+
+.greenSpace {
   width: 50%;
-  color: #444444;
+  height: 850px;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  z-index: -1;
+  background-color: #094F28;
 }
 
-.App .bars {
-  fill: #0C9475;
+.imgCar {
+  position: absolute;
+  right: 100px;
+  top: 410px;
+  z-index: 2;
 }
 
-.App .lines {
-  stroke: #C0C0BB;
+main {
+  padding: 50px 100px;
 }
 
-.App .city {
-  fill: #E9E9E9;
+.yellowColor {
+  display: block;
+  padding: 30px 0px;
+  color: #F6AE2D;
 }
 
-.App .garages {
+.bigYellow {
+  color: #F6AE2D;
+  font-size: 2em;
+  font-weight: bold;
+  display: block;
+}
+
+.bigGreen {
+  color: #F6AE2D;
+  font-size: 4em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* .App p {
+  max-width: 700px;
+} */
+
+.bars {
+  fill: #F6AE2D;
+}
+
+text {
+  fill: white;
+}
+
+.lines {
+  stroke: #b4b4b4;
+}
+
+.city {
+  fill: #219267;
+}
+
+.garages {
   fill:maroon;
 }
 
-.App .tooltip {
-  padding: 1em;
-  position: fixed;
-  background-color: white;
-  pointer-events: none;
-}
-
-.App .chargingpoints {
-  fill: #0C9475;
+.chargingpoints {
+  fill: #F6AE2D;
 }

@@ -30,6 +30,10 @@ export async function fetchData (setGarages,
   let uniqueBrands = [];
   getCount(carBrands, uniqueBrands);
   sortArray(uniqueBrands);
+  // const number = 13835348;
+  // const newNumb = new Intl.NumberFormat('nl').format(number);
+  // console.log(newNumb);
+  // console.log(typeof(+(allCars[0].count)));
 
   // Setting all the states:
   setGarages(allGarages);

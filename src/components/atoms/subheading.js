@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const SubHeading = ({ subtitle }) => {
+export const SubHeading = ({ subtitle, name }) => {
   return <>
-    <h2 className="sub-title">{ subtitle }</h2>
+    <h2 className={name}>{ subtitle }</h2>
   </>
 };

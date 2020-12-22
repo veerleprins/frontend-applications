@@ -33,20 +33,25 @@ function App() {
 
   if (!map) {
     return (
-      <div>
-        Loading...
-      </div>
+      <>
+      <div>Loading...</div>
+      </>
     )
   }
 
-  return <div className="App">
-    <HeaderText/>
-    <FirstArticle allCars={allCars} countElectric={countElectric}/>
-    <SecondArticle data={electric}/>
-    <SubHeading subtitle="Waar staan de laadpalen in Nederland?"/>
-    <Paragraph text={lastText} name="lastP"/>
-    <DutchMap data={map} garages={garages} chargingPoints={chargingGarages} />
-  </div>
+  return <>
+    <main>
+      <HeaderText/>
+      <FirstArticle allCars={allCars} countElectric={countElectric}/>
+      <SecondArticle data={electric}/>
+      <SubHeading subtitle="Waar staan de laadpalen in Nederland?"/>
+      <Paragraph text={lastText} name="lastP"/>
+      <DutchMap data={map} garages={garages} chargingPoints={chargingGarages} />
+    </main>
+    <footer>
+
+    </footer>
+  </>
 }
  export default App;
 
