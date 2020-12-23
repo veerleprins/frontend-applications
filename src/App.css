@@ -83,6 +83,12 @@ main {
   max-width: 700px;
 } */
 
+svg {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .bars {
   fill: #F6AE2D;
 }
