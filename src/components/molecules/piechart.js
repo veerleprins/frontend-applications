@@ -1,6 +1,7 @@
 import { width, height, radius } from '../../modules/helpers/utils';
 import { scaleOrdinal, pie, arc } from 'd3';
 import { ArcPath } from '../atoms/arcpath';
+import { Labels } from '../atoms/labels';
 
 // From example: https://medium.com/stationfive/how-to-create-a-pie-chart-with-d3-js-and-react-hooks-part-1-81bcd7f39b32
 export const PieChart = ({ data }) => {
@@ -13,6 +14,7 @@ export const PieChart = ({ data }) => {
       <svg width={width} height={height}>
         <g transform={`translate(${width / 2},${height / 2})`}>
           {totalData.map((d, i) => (
+            <>
             <ArcPath
               key={i}
               data={d}
@@ -20,6 +22,8 @@ export const PieChart = ({ data }) => {
               createArc={createArc}
               colors={colors}
             />
+            <Labels data={ d } colors = { colors } index={ i }/>
+            </>
           ))}
         </g>
       </svg>

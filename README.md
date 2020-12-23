@@ -68,6 +68,19 @@ Now React opens http://localhost:300/ automatically in your browser to view the 
 <!-- https://reactjs.org/ -->
 <!-- https://www.youtube.com/watch?v=Uo_1zgaB2qM -->
 
+* Unkown, E. & StackOverflow. (2018, 6 december). How do I center an SVG in a div? Stack Overflow. https://stackoverflow.com/questions/8639383/how-do-i-center-an-svg-in-a-div 
+<!-- For centering SVG like the piechart -->
+* Cho, K. & Medium. (2019, 31 januari). How to create a pie chart with D3.js and React Hooks (Part 1). Medium. https://medium.com/stationfive/how-to-create-a-pie-chart-with-d3-js-and-react-hooks-part-1-81bcd7f39b32
+<!-- For fixing the error 'Warning: Invalid value for prop `d` on <path> tag. Either remove it from the element, or pass a string or number value to keep it in the DOM.'  -->
+* Holtz, Y. & D3.js Graph Gallery. (2018). Basic pie chart in d3.js. D3.js Graph Gallery. https://www.d3-graph-gallery.com/graph/pie_basic.html
+<!-- For first time creating pie chart with D3.js -->
+* Bobi, M., StackOverflow, & Crowder, T. J. (2011, 20 april). How to format numbers? Stack Overflow. https://stackoverflow.com/questions/5731193/how-to-format-numbers
+<!-- For fixing the readability of the large million number of the number of cars. -->
+* W3Schools.com. (z.d.). Colors Gradient. Geraadpleegd op 21 december 2020, van https://www.w3schools.com/colors/colors_gradient.asp
+<!-- For creating a linear gradient background. -->
+* Unkown, A. & StackOverflow. (2016, 12 oktober). How do I reference a local image in React? Stack Overflow. https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
+<!-- For adding the car PNG file with import within React. -->
+
 
 ## :lock: License
 This repo is licensed as [MIT](https://github.com/veerleprins/frontend-applications/blob/main/LICENSE) by :copyright: [Veerle Prins](https://github.com/veerleprins), 2020

@@ -41,7 +41,6 @@ function App() {
   return <>
     <main>
       <FirstSection/>
-      <PieChart data={ cars }/>
       <SecondSection carsObj={cars}/>
       <SecondArticle data={electric}/>
       <SubHeading subtitle="Waar staan de laadpalen in Nederland?"/>

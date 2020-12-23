@@ -7,7 +7,7 @@ export const ArcPath = ({ data, index, createArc, colors }) => (
       textAnchor="middle"
       alignmentBaseline="middle"
     >
-      { data.data.name }
+      {/* { data.data.name } */}
     </text>
   </g>
 );
