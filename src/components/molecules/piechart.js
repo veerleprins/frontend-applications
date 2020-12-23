@@ -1,5 +1,5 @@
 import { width, height, radius } from '../../modules/helpers/utils';
-import { scaleOrdinal, pie, arc, format } from 'd3';
+import { scaleOrdinal, pie, arc } from 'd3';
 import { ArcPath } from '../atoms/arcpath';
 import { Labels } from '../atoms/labels';
 

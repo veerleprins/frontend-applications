@@ -8,7 +8,6 @@ import { SecondSection } from './components/organisms/secondsection';
 import { SecondArticle } from './components/organisms/secondarticle';
 import { Paragraph } from './components/atoms/paragraph';
 import { lastText } from './modules/helpers/utils';
-import { PieChart } from './components/molecules/piechart';
 
 function App() {
   // Datasets:
