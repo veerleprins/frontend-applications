@@ -10,9 +10,8 @@ const endpoint = 'https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson';
 export async function fetchData (setGarages, 
   setElectric, 
   setMap, 
-  setChargingGarages, 
-  setCountElectric, 
-  setAllCars) 
+  setChargingGarages,
+  setCars) 
   {
   // Getting all the data for the visualizations:
   const specData = await json(API_1);
@@ -30,18 +29,24 @@ export async function fetchData (setGarages,
   let uniqueBrands = [];
   getCount(carBrands, uniqueBrands);
   sortArray(uniqueBrands);
-  // const number = 13835348;
-  // const newNumb = new Intl.NumberFormat('nl').format(number);
-  // console.log(newNumb);
-  // console.log(typeof(+(allCars[0].count)));
+
+  const carsObj = [{
+    keyNum: 1,
+    name: "Alle auto's",
+    value: +(allCars[0].count)
+  },
+  {
+    keyNum: 2,
+    name: "Elektrische auto's",
+    value: carBrands.length
+  }];
 
   // Setting all the states:
   setGarages(allGarages);
-  setCountElectric(carBrands.length);
   setChargingGarages(chargingGarages);
-  setAllCars(+(allCars[0].count));
   setElectric(uniqueBrands.slice(0, 10));
   setMap(towns.features);
+  setCars(carsObj);
 };
 
 // This function filters through a array and returns the filtered list 

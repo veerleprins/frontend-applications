@@ -10,7 +10,7 @@ h1 {
 }
 
 h2 {
-  font-size: 65px;
+  font-size: 35px;
   text-align: center;
 }
 
@@ -69,6 +69,7 @@ main {
   font-size: 2em;
   font-weight: bold;
   display: block;
+  margin: 40px 0px;
 }
 
 .bigGreen {

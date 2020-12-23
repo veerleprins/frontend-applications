@@ -4,10 +4,10 @@ import { Image } from '../atoms/image';
 import { Paragraph } from '../atoms/paragraph';
 import { startText } from '../../modules/helpers/utils';
 
-export const HeaderText = () => (
+export const FirstSection = () => (
   <section>
     <HeaderTitle/>
-    <Image imageSrc={carPNG} />
-    <Paragraph text={startText} name="firstP"/>
+    <Image imageSrc={ carPNG } />
+    <Paragraph text={ startText } name="firstP"/>
   </section>
 )

@@ -5,8 +5,11 @@ import { thirdText } from '../../modules/helpers/utils';
 
 export const SecondArticle = ({ data }) => (
   <>
-    <SubHeading subtitle="Welke merken zijn het populairst in Nederland?"/>
+  <section>
+    <SubHeading 
+      subtitle="Welke merken zijn het populairst in Nederland?"/>
     <Paragraph text={ thirdText } name="secondP"/>
     <BarChart data={ data } />
+  </section>
   </>
 )

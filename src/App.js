@@ -1,13 +1,14 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { fetchData } from './modules/fetchData.js';
-import { HeaderText } from './components/organisms/headertext';
+import { FirstSection } from './components/organisms/firstsection';
 import { SubHeading } from './components/atoms/subheading.js';
 import { DutchMap } from './components/molecules/dutchmap.js';
-import { FirstArticle } from './components/organisms/firstarticle';
+import { SecondSection } from './components/organisms/secondsection';
 import { SecondArticle } from './components/organisms/secondarticle';
 import { Paragraph } from './components/atoms/paragraph';
 import { lastText } from './modules/helpers/utils';
+import { PieChart } from './components/molecules/piechart';
 
 function App() {
   // Datasets:
@@ -15,23 +16,21 @@ function App() {
   const [chargingGarages, setChargingGarages] = useState(null);
   const [electric, setElectric] = useState(null);
   const [map, setMap] = useState(null);
-  const [countElectric, setCountElectric] = useState(null);
-  const [allCars, setAllCars] = useState(null);
+  const [cars, setCars] = useState(null);
 
   useEffect(() => {
     fetchData(setGarages, 
       setElectric, 
       setMap, 
-      setChargingGarages, 
-      setCountElectric, 
-      setAllCars);
+      setChargingGarages,
+      setCars);
   }, []);
 
   useEffect(() => {
     <DutchMap data={map} garages={garages} chargingPoints={chargingGarages}/>
   }, [map, garages, chargingGarages]);
 
-  if (!map) {
+  if (!cars) {
     return (
       <>
       <div>Loading...</div>
@@ -41,8 +40,9 @@ function App() {
 
   return <>
     <main>
-      <HeaderText/>
-      <FirstArticle allCars={allCars} countElectric={countElectric}/>
+      <FirstSection/>
+      <PieChart data={ cars }/>
+      <SecondSection carsObj={cars}/>
       <SecondArticle data={electric}/>
       <SubHeading subtitle="Waar staan de laadpalen in Nederland?"/>
       <Paragraph text={lastText} name="lastP"/>
