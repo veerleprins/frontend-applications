@@ -23,8 +23,16 @@ export const SecondSection = ({ carsObj }) => {
         spanText={ numb2 }
         last="elektrische auto's in Nederland."
       />
-      <Paragraph text={`Dit komt neer op maar ${newNum} % van alle auto's in Nederland.`} name=""/>
-      <PieChart data={ carsObj }/>
+  </section>
+  <section>
+    <SpanTitle 
+        first="Dit komt neer op maar "
+        // spanText={ JSON.stringify(allCars) }
+        spanText={ carsObj[1].percentage + " %" }
+        last="van alle auto's in Nederland."
+    />
+    {/* <Paragraph text={`Dit komt neer op maar ${carsObj[1].percentage} % van alle auto's in Nederland.`} name=""/> */}
+    <PieChart data={ carsObj }/>
   </section>
   {/* <section>
     <SpanTitle 

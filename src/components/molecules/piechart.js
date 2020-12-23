@@ -1,5 +1,5 @@
 import { width, height, radius } from '../../modules/helpers/utils';
-import { scaleOrdinal, pie, arc } from 'd3';
+import { scaleOrdinal, pie, arc, format } from 'd3';
 import { ArcPath } from '../atoms/arcpath';
 import { Labels } from '../atoms/labels';
 
@@ -9,6 +9,10 @@ export const PieChart = ({ data }) => {
   const colors = scaleOrdinal(["#043E1D", "#F6AE2D"]);
   const createArc = arc().innerRadius(0).outerRadius(radius);
   const totalData = createPie(data);
+
+  const label = arc()
+    .outerRadius(radius)
+    .innerRadius(radius + 70);
 
   return (
       <svg width={width} height={height}>
@@ -21,6 +25,7 @@ export const PieChart = ({ data }) => {
               index={i}
               createArc={createArc}
               colors={colors}
+              label={label}
             />
             <Labels data={ d } colors = { colors } index={ i }/>
             </>

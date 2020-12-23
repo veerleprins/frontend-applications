@@ -30,16 +30,31 @@ export async function fetchData (setGarages,
   getCount(carBrands, uniqueBrands);
   sortArray(uniqueBrands);
 
+  let perc = +(allCars[0].count - carBrands.length) / +(allCars[0].count) * 100;
+  let perc2 = carBrands.length / +(allCars[0].count) * 100;
+
+  let twoDigits = perc.toFixed(2);
+  let newNum = twoDigits.replace(".", ",");
+  console.log(newNum);
+
+  let twodigit = perc2.toFixed(2);
+  let secondnum = twodigit.replace(".", ",");
+
+
+
   const carsObj = [{
     keyNum: 1,
-    name: "Alle auto's",
-    value: +(allCars[0].count)
+    name: "Niet elektrische auto's",
+    value: +(allCars[0].count - carBrands.length),
+    percentage: newNum
   },
   {
     keyNum: 2,
     name: "Elektrische auto's",
-    value: carBrands.length
+    value: carBrands.length,
+    percentage: secondnum
   }];
+  console.log(carsObj);
 
   // Setting all the states:
   setGarages(allGarages);
