@@ -3,7 +3,8 @@
 // The API's needed for the visualizations:
 export const API_1 = 'https://opendata.rdw.nl/resource/b3us-f26s.json';
 export const API_2 = 'https://opendata.rdw.nl/resource/t5pc-eb34.json';
-export const API_3 = 'https://opendata.rdw.nl/resource/m9d7-ebf2.json?$select=count(*)';
+export const API_3 = 'https://opendata.rdw.nl/resource/dy9u-ian4.json?$select=count(*)';
+// export const API_3 = 'https://opendata.rdw.nl/resource/m9d7-ebf2.json?$select=count(*)';
 export const API_4 = 'https://opendata.rdw.nl/resource/w4rt-e856.json?$limit=200000';
 
 // The array's with columns whose strings must be converted to integers:

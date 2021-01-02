@@ -23,6 +23,7 @@ export async function fetchData (setGarages,
   let towns = feature(GEOdata, GEOdata.objects.gemeente_2020);
 
   let allGarages = startCleaning(specData, locData);
+
   let chargingGarages = filterObjects(allGarages, ['specifications', 'chargingpointcapacity']);
   let carBrands = getItems(electricCars, 'merk', 'MOTORS');
 
@@ -30,38 +31,19 @@ export async function fetchData (setGarages,
   getCount(carBrands, uniqueBrands);
   sortArray(uniqueBrands);
 
-  let perc = +(allCars[0].count - carBrands.length) / +(allCars[0].count) * 100;
-  let perc2 = carBrands.length / +(allCars[0].count) * 100;
+  let amountAllCars = +(allCars[0].count);
+  let amountElec = carBrands.length;
 
-  let twoDigits = perc.toFixed(2);
-  let newNum = twoDigits.replace(".", ",");
-  console.log(newNum);
-
-  let twodigit = perc2.toFixed(2);
-  let secondnum = twodigit.replace(".", ",");
-
-
-
-  const carsObj = [{
-    keyNum: 1,
-    name: "Niet elektrische auto's",
-    value: +(allCars[0].count - carBrands.length),
-    percentage: newNum
-  },
-  {
-    keyNum: 2,
-    name: "Elektrische auto's",
-    value: carBrands.length,
-    percentage: secondnum
-  }];
-  console.log(carsObj);
+  let percNonElec = getPercentage((amountAllCars - amountElec), amountAllCars);
+  let percElec = getPercentage(amountElec, amountAllCars);
+  const pieArr = createArr(amountAllCars, amountElec, percNonElec, percElec);
 
   // Setting all the states:
   setGarages(allGarages);
   setChargingGarages(chargingGarages);
   setElectric(uniqueBrands.slice(0, 10));
   setMap(towns.features);
-  setCars(carsObj);
+  setCars(pieArr);
 };
 
 // This function filters through a array and returns the filtered list 
@@ -80,14 +62,14 @@ function checkObjects (column, obj) {
   return (column !== 0) ? obj : false
 }
 
-// This function sorts an array from largest value to smallest value.
-// Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-function sortArray(dataArray) {
-  dataArray.sort((min, max) => {
-    return max.value - min.value;
-  })
+// This function searches for items in a column of an array and returns 
+// the item if it does not contain the specific word.
+function getItems (dataArray, column, word) {
+  let list =  dataArray.map((obj) => {
+    return (!obj[column].includes(word)) ? obj[column] : false;
+  });
+  return list.filter(Boolean);
 }
-
 
 // Code from Laurens & Sergio:
 // https://vizhub.com/HappyPantss/673013ca00df472da1a3dfa7a6b55aaf?edit=files&file=index.js
@@ -104,11 +86,32 @@ function getCount(dataArray, newArray) {
   });
 }
 
-// This function searches for items in a column of an array and returns 
-// the item if it does not contain the specific word.
-function getItems (dataArray, column, word) {
-  let list =  dataArray.map((obj) => {
-    return (!obj[column].includes(word)) ? obj[column] : false;
-  });
-  return list.filter(Boolean);
+// This function sorts an array from largest value to smallest value.
+// Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+function sortArray(dataArray) {
+  dataArray.sort((min, max) => {
+    return max.value - min.value;
+  })
+}
+
+// This function changes the percentage to a number with two digits and
+// replaces the dot to a comma:
+function getPercentage(num, total) {
+  let percentage = num / total * 100;
+  return percentage.toFixed(2).replace(".", ",");
+}
+
+function createArr(cars, elecs, percCars, percElec) {
+  return [{
+    keyNum: 1,
+    name: "Niet elektrische auto's",
+    value: (cars - elecs),
+    percentage: percCars
+  }, 
+  {
+    keyNum: 2,
+    name: "Elektrische auto's",
+    value: elecs,
+    percentage: percElec
+  }]
 }
