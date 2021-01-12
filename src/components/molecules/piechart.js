@@ -3,6 +3,7 @@ import { width, height, radius } from '../../modules/helpers/utils';
 // Importing the components:
 import { ArcPath } from '../atoms/arcpath';
 import { Labels } from '../atoms/labels';
+import { SpanTitle } from "../atoms/spantitle";
 
 // From example: https://medium.com/stationfive/how-to-create-a-pie-chart-with-d3-js-and-react-hooks-part-1-81bcd7f39b32
 export const PieChart = ({ data }) => {
@@ -16,22 +17,29 @@ export const PieChart = ({ data }) => {
     .innerRadius(radius + 70);
 
   return (
-    <svg width={width} height={height}>
-      <g transform={`translate(${width / 2},${height / 2})`}>
-        {totalData.map((d, i) => (
-          <>
-          <ArcPath
-            key={i}
-            data={d}
-            index={i}
-            createArc={createArc}
-            colors={colors}
-            label={label}
-          />
-          <Labels data={ d } colors = { colors } index={ i }/>
-          </>
-        ))}
-      </g>
-    </svg>
+    <section>
+      <SpanTitle 
+        first="Dit komt neer op maar "
+        spanText={ data[1].percentage + " %" }
+        last="van alle auto's in Nederland."
+      />
+      <svg width={width} height={height}>
+        <g transform={`translate(${width / 2},${height / 2})`}>
+          {totalData.map((d, i) => (
+            <>
+            <ArcPath
+              key={i}
+              data={d}
+              index={i}
+              createArc={createArc}
+              colors={colors}
+              label={label}
+            />
+            <Labels data={ d } colors = { colors } index={ i }/>
+            </>
+          ))}
+        </g>
+      </svg>
+    </section>
   )
 }

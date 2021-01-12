@@ -25,6 +25,7 @@ h1 {
 h2 {
   font-size: 35px;
   text-align: center;
+  font-weight: normal;
 }
 
 h3 {
@@ -38,6 +39,10 @@ p {
 
 section {
   margin-bottom: 100vh;
+}
+
+section:last-of-type {
+  margin-bottom: 0;
 }
 
 .firstP {

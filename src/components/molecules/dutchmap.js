@@ -4,6 +4,7 @@ import { width, height } from "../../modules/helpers/utils";
 // Importing the components:
 import { Paths } from "../atoms/paths";
 import { Circles } from "../atoms/circles";
+import { SpanTitle } from "../atoms/spantitle";
 
 // .scale(5100).center([]) 
 // from Merlijn: https://github.com/mbergevoet/frontend-data/blob/master/frontend-data/index.js
@@ -25,7 +26,11 @@ export const DutchMap = ({ data, garages, chargingPoints }) => {
   );
 
   return (
-    <>
+    <section>
+      <SpanTitle
+        first={`Maar waar kan deze elektrische auto dan worden`}
+        spanText="opgeladen?"
+      />
       <svg ref={svgEl} width={width} height={height}>
         <g className="group" ref={svgGroup}>
           <Paths data={data} pathGenerator={pathGenerator} />
@@ -43,6 +48,6 @@ export const DutchMap = ({ data, garages, chargingPoints }) => {
           />
         </g>
       </svg>
-    </>
+    </section>
   );
 };

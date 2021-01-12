@@ -2,12 +2,10 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import { fetchData } from "./modules/fetchData.js";
 import { Intro } from "./components/molecules/intro";
-import { SubHeading } from "./components/atoms/subheading.js";
 import { DutchMap } from "./components/molecules/dutchmap.js";
 import { ScrollVisualization } from "./components/organisms/scrollVisualization";
-import { Paragraph } from "./components/atoms/paragraph";
-import { lastText } from "./modules/helpers/utils";
 import { BarChart } from "./components/molecules/barchart";
+import { PieChart } from "./components/molecules/piechart";
 
 function App() {
   // Datasets:
@@ -19,11 +17,11 @@ function App() {
 
   useEffect(() => {
     fetchData(setGarages, setElectric, setMap, setChargingGarages, setCars);
-  }, []);
+  }, [setMap, setGarages]);
 
-  useEffect(() => {
-    <DutchMap data={map} garages={garages} chargingPoints={chargingGarages} />;
-  }, [map, garages, chargingGarages]);
+  // useEffect(() => {
+  //   <DutchMap data={map} garages={garages} chargingPoints={chargingGarages} />;
+  // }, [map, garages, chargingGarages]);
 
   if (!cars) {
     return (
@@ -37,10 +35,9 @@ function App() {
     <>
       <main>
         <Intro />
-        <ScrollVisualization carsObj={cars} />
+        <ScrollVisualization cars={cars} />
+        <PieChart data={cars}/>
         <BarChart data={electric} cars={cars} />
-        <SubHeading subtitle="Waar staan de laadpalen in Nederland?" />
-        <Paragraph text={lastText} name="lastP" />
         <DutchMap
           data={map}
           garages={garages}
