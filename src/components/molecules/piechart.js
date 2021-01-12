@@ -1,5 +1,6 @@
-import { width, height, radius } from '../../modules/helpers/utils';
 import { scaleOrdinal, pie, arc } from 'd3';
+import { width, height, radius } from '../../modules/helpers/utils';
+// Importing the components:
 import { ArcPath } from '../atoms/arcpath';
 import { Labels } from '../atoms/labels';
 
@@ -15,22 +16,22 @@ export const PieChart = ({ data }) => {
     .innerRadius(radius + 70);
 
   return (
-      <svg width={width} height={height}>
-        <g transform={`translate(${width / 2},${height / 2})`}>
-          {totalData.map((d, i) => (
-            <>
-            <ArcPath
-              key={i}
-              data={d}
-              index={i}
-              createArc={createArc}
-              colors={colors}
-              label={label}
-            />
-            <Labels data={ d } colors = { colors } index={ i }/>
-            </>
-          ))}
-        </g>
-      </svg>
+    <svg width={width} height={height}>
+      <g transform={`translate(${width / 2},${height / 2})`}>
+        {totalData.map((d, i) => (
+          <>
+          <ArcPath
+            key={i}
+            data={d}
+            index={i}
+            createArc={createArc}
+            colors={colors}
+            label={label}
+          />
+          <Labels data={ d } colors = { colors } index={ i }/>
+          </>
+        ))}
+      </g>
+    </svg>
   )
 }

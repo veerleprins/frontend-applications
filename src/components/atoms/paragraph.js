@@ -1,10 +1,5 @@
-import React from 'react';
-import './CreateButton.css';
+import React from "react";
 
-export const Paragraph = ({ text, name }) => {
-  return (
-    <>
-      <p className={name}> { text }</p>
-    </>
-  )
-};
+export const Paragraph = ({ text, name }) => (
+  <p className={name}> {text}</p> 
+);

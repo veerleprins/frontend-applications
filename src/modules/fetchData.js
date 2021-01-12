@@ -1,10 +1,7 @@
 import { json } from 'd3';
-import { API_1, API_2, API_3, API_4 } from './helpers/utils';
 import { feature } from 'topojson';
+import { API_1, API_2, API_3, API_4, API_5 } from './helpers/utils';
 import { startCleaning } from './cleanData';
-
-// Endpoint from Merlijn: https://github.com/mbergevoet/frontend-data/blob/master/frontend-data/index.js
-const endpoint = 'https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson';
 
 // Code from https://github.com/BVictorB/frontend-applications/blob/master/src/helper/fetchData.js
 export async function fetchData (setGarages, 
@@ -18,7 +15,7 @@ export async function fetchData (setGarages,
   const locData = await json(API_2);
   const allCars = await json(API_3);
   const electricCars = await json(API_4);
-  const GEOdata = await json(endpoint);
+  const GEOdata = await json(API_5);
 
   let towns = feature(GEOdata, GEOdata.objects.gemeente_2020);
 

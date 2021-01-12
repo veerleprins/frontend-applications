@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-export const Image = ({ imageSrc }) => {
+export const Image = ({ imageSrc, name, divName, altText }) => {
   return (
     <>
-      <div className="greenSpace">
-        <img src={imageSrc} className="imgCar" alt="png file of a car"/>
+      <div className={divName}>
+        <img src={imageSrc} className={name} alt={altText} />
       </div>
     </>
-  )
+  );
 };

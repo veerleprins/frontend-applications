@@ -1,4 +1,3 @@
-
 export const ArcPath = ({ data, index, createArc, colors, label }) => (
   <g key={index} className="arc">
     <path className="piePath" d={createArc(data)} fill={colors(index)} />
