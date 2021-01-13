@@ -36,7 +36,7 @@ export const DutchMap = ({ data, garages, chargingPoints }) => {
           <Paths data={data} pathGenerator={pathGenerator} />
           <Circles
             data={garages}
-            keyName="areaid"
+            keyName="areaidareamanagerid"
             projection={projection}
             name="garages"
           />

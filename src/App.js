@@ -1,11 +1,14 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import { fetchData } from "./modules/fetchData.js";
+import { cleanCars } from "./modules/clean/cleanCars.js";
 import { Intro } from "./components/molecules/intro";
 import { DutchMap } from "./components/molecules/dutchmap.js";
 import { ScrollVisualization } from "./components/organisms/scrollVisualization";
 import { BarChart } from "./components/molecules/barchart";
 import { PieChart } from "./components/molecules/piechart";
+import { Footer } from "./components/molecules/footer";
+import { cleanMapData } from "./modules/clean/cleanMapData.js";
+import { cleanGarages } from "./modules/clean/cleanGarages";
 
 function App() {
   // Datasets:
@@ -16,12 +19,19 @@ function App() {
   const [cars, setCars] = useState(null);
 
   useEffect(() => {
-    fetchData(setGarages, setElectric, setMap, setChargingGarages, setCars);
-  }, [setMap, setGarages]);
+    cleanCars(setElectric, setCars);
+  }, []);
 
-  // useEffect(() => {
-  //   <DutchMap data={map} garages={garages} chargingPoints={chargingGarages} />;
-  // }, [map, garages, chargingGarages]);
+  useEffect(() => {
+    cleanMapData(setMap);
+    localStorage.setItem('map', JSON.stringify(map))
+  }, [map]);
+
+  useEffect(() => {
+    cleanGarages(setGarages, setChargingGarages);
+    // localStorage.setItem('garages', JSON.stringify(garages))
+    // localStorage.setItem('charging-garages', JSON.stringify(chargingGarages))
+  }, []);
 
   if (!cars) {
     return (
@@ -44,7 +54,7 @@ function App() {
           chargingPoints={chargingGarages}
         />
       </main>
-      <footer></footer>
+      <Footer/>
     </>
   );
 }

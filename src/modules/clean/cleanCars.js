@@ -1,27 +1,11 @@
 import { json } from 'd3';
-import { feature } from 'topojson';
-import { API_1, API_2, API_3, API_4, API_5 } from './helpers/utils';
-import { startCleaning } from './cleanData';
+import { API_3, API_4 } from '../helpers/utils';
 
 // Code from https://github.com/BVictorB/frontend-applications/blob/master/src/helper/fetchData.js
-export async function fetchData (setGarages, 
-  setElectric, 
-  setMap, 
-  setChargingGarages,
-  setCars) 
-  {
-  // Getting all the data for the visualizations:
-  const specData = await json(API_1);
-  const locData = await json(API_2);
+export async function cleanCars (setElectric, setCars) {
   const allCars = await json(API_3);
   const electricCars = await json(API_4);
-  const GEOdata = await json(API_5);
 
-  let towns = feature(GEOdata, GEOdata.objects.gemeente_2020);
-
-  let allGarages = startCleaning(specData, locData);
-
-  let chargingGarages = filterObjects(allGarages, ['specifications', 'chargingpointcapacity']);
   let carBrands = getItems(electricCars, 'merk', 'MOTORS');
 
   let uniqueBrands = [];
@@ -36,28 +20,9 @@ export async function fetchData (setGarages,
   const pieArr = createArr(amountAllCars, amountElec, percNonElec, percElec);
 
   // Setting all the states:
-  setGarages(allGarages);
-  setChargingGarages(chargingGarages);
   setElectric(uniqueBrands.slice(0, 10));
-  setMap(towns.features);
   setCars(pieArr);
 };
-
-// This function filters through a array and returns the filtered list 
-// without the false values:
-// .filter( Boolean ) from source:
-// https://stackoverflow.com/questions/28607451/removing-undefined-values-from-array
-function filterObjects(dataArray, arr) {
-  let newList = dataArray.map((obj) => {
-    let c = obj[arr[0]][arr[1]];
-    return checkObjects(c, obj);
-  })
-  return newList.filter( Boolean );
-}
-
-function checkObjects (column, obj) {
-  return (column !== 0) ? obj : false
-}
 
 // This function searches for items in a column of an array and returns 
 // the item if it does not contain the specific word.

@@ -1,10 +1,10 @@
 export const Circles = ({data, keyName, projection, name}) => (
   <g className="circles">
-    {data.map(d => {
+    {data.map((d, i) => {
       const [x, y] = projection([d.location.longitude, d.location.latitude]);
       return (
         <circle
-          key={d[keyName]}
+          key={i}
           className={name}
           cx={x}
           cy={y}
