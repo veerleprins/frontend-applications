@@ -46,11 +46,16 @@ footer {
   height: 20vh;
 }
 
+.loading {
+  height: 100vh;
+  padding-top: 30vh;
+}
+
 .firstP {
   max-width: 700px;
 }
 
-.greenSpace {
+/* .greenSpace {
   width: 50%;
   height: 850px;
   position: absolute;
@@ -58,7 +63,7 @@ footer {
   top: 40px;
   z-index: -1;
   background-color: #094f28;
-}
+} */
 
 .imgCar {
   position: absolute;
@@ -119,7 +124,9 @@ text {
 }
 
 .city {
-  fill: #219267;
+  fill: #043E1D;
+  stroke: white;
+  stroke-width: 0.03px;
 }
 
 .garages {

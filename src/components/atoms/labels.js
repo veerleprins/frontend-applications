@@ -1,4 +1,3 @@
-
 export const Labels = ({ data, colors, index }) => {
   let rValue = 0;
   let tValue = 0;

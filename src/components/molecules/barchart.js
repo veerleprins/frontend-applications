@@ -25,7 +25,7 @@ export const BarChart = ({ data, cars }) => {
   return (
     <section>
       <SpanTitle
-        first={`Van deze ${cars[1].percentage} %, zijn dit de`}
+        first={`Van deze ${cars[1].percentage}% zijn dit de`}
         spanText="10 populairste merken"
       />
       <svg width={width} height={height} >

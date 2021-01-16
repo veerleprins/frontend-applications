@@ -3,7 +3,7 @@ import { width, height, radius } from '../../modules/helpers/utils';
 // Importing the components:
 import { ArcPath } from '../atoms/arcpath';
 import { Labels } from '../atoms/labels';
-import { SpanTitle } from "../atoms/spantitle";
+import { SpanTitle } from '../atoms/spantitle';
 
 // From example: https://medium.com/stationfive/how-to-create-a-pie-chart-with-d3-js-and-react-hooks-part-1-81bcd7f39b32
 export const PieChart = ({ data }) => {
