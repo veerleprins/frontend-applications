@@ -1,4 +1,5 @@
 ## Frontend Applications
+<img width="1624" alt="Screenshot of the page with the visualizations." src="https://user-images.githubusercontent.com/35265583/104816885-454efe00-581e-11eb-8c93-da6a5e05cfeb.png">    
 
 ## Table of contents:
 * [Description](#black_nib-description)
@@ -18,8 +19,6 @@ This repository shows a data visualization with React and D3 using datasets prov
 In order to be able to visualize this main question, several sub questions have been created. You can find these in my [wiki - Concept](https://github.com/veerleprins/frontend-applications)
 
 ## :small_orange_diamond: Feature
-<img width="1624" alt="Screenshot of the page with the visualizations." src="https://user-images.githubusercontent.com/35265583/104816885-454efe00-581e-11eb-8c93-da6a5e05cfeb.png">    
-
 Various visualisations have been made on the interactive website. Below I have named these with the sources I used for the code:    
 * [Pie chart](https://medium.com/stationfive/how-to-create-a-pie-chart-with-d3-js-and-react-hooks-part-1-81bcd7f39b32)
 * [Bar chart](https://www.youtube.com/watch?v=ZpBPLpgIvu8&list=PL9yYRbwpkykuK6LSMLH3bAaPpXaDUXcLV&index=22&ab_channel=CurranKelleher)
