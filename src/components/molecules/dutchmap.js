@@ -30,17 +30,17 @@ export const DutchMap = ({ data, garages, chargingPoints }) => {
   return (
     <section>
       <SpanTitle
-        first={`Maar in welke garage kan deze elektrische auto dan worden`}
+        first={`Maar waar kan deze elektrische auto dan worden`}
         spanText='opgeladen?'
       />
       <svg className='dutch-map' ref={svgEl} width={width} height={height}>
         <g className='group' ref={svgGroup}>
           <Paths data={data} pathGenerator={pathGenerator} />
-          <Circles
+          {/* <Circles
             data={garages}
             projection={projection}
             name='garages'
-          />
+          /> */}
           <Circles
             data={chargingPoints}
             projection={projection}
