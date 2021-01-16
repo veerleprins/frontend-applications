@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { select, geoPath, geoMercator, zoom } from 'd3';
 import { width, height } from '../../modules/helpers/utils';
 // Importing the components:
