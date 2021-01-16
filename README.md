@@ -18,6 +18,13 @@ This repository shows a data visualization with React and D3 using datasets prov
 In order to be able to visualize this main question, several sub questions have been created. You can find these in my [wiki - Concept](https://github.com/veerleprins/frontend-applications)
 
 ## :small_orange_diamond: Feature
+<img width="1624" alt="Screenshot of the page with the visualizations." src="https://user-images.githubusercontent.com/35265583/104816885-454efe00-581e-11eb-8c93-da6a5e05cfeb.png">    
+
+Various visualisations have been made on the interactive website. Below I have named these with the sources I used for the code:    
+* [Pie chart](https://medium.com/stationfive/how-to-create-a-pie-chart-with-d3-js-and-react-hooks-part-1-81bcd7f39b32)
+* [Bar chart](https://www.youtube.com/watch?v=ZpBPLpgIvu8&list=PL9yYRbwpkykuK6LSMLH3bAaPpXaDUXcLV&index=22&ab_channel=CurranKelleher)
+* [Map](https://www.youtube.com/watch?v=mzZ1fCXq-uo&list=PL9yYRbwpkykuK6LSMLH3bAaPpXaDUXcLV&index=30&ab_channel=CurranKelleher)
+
 
 
 ## :link: Datasets
@@ -61,13 +68,11 @@ Go to the repository in the terminal and add the following line of code below:
 Now React opens http://localhost:300/ automatically in your browser to view the visualization! :raised_hands:
 
 ## :globe_with_meridians: Deploy
-
+My visualizations can be found at the link below:    
+https://frontend-applications-veerleprins.netlify.app/
 
 ## :books: Sources
-<!-- https://bradfrost.com/blog/post/atomic-web-design/ -->
-<!-- https://reactjs.org/ -->
 <!-- https://www.youtube.com/watch?v=Uo_1zgaB2qM -->
-
 * Unkown, E. & StackOverflow. (2018, 6 december). How do I center an SVG in a div? Stack Overflow. https://stackoverflow.com/questions/8639383/how-do-i-center-an-svg-in-a-div 
 <!-- For centering SVG like the piechart -->
 * Cho, K. & Medium. (2019, 31 januari). How to create a pie chart with D3.js and React Hooks (Part 1). Medium. https://medium.com/stationfive/how-to-create-a-pie-chart-with-d3-js-and-react-hooks-part-1-81bcd7f39b32
@@ -80,80 +85,27 @@ Now React opens http://localhost:300/ automatically in your browser to view the 
 <!-- For creating a linear gradient background. -->
 * Unkown, A. & StackOverflow. (2016, 12 oktober). How do I reference a local image in React? Stack Overflow. https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
 <!-- For adding the car PNG file with import within React. -->
-
+* Code Drip by Aaron Jack. (2019, December 18). Learn REACT JS in just 5 MINUTES (2020) [Video]. YouTube. https://www.youtube.com/watch?v=MRIMT0xPXFI&ab_channel=CodeDripbyAaronJack
+* Frost, B. (2020, August 31). Atomic Design. Brad Frost. https://bradfrost.com/blog/post/atomic-web-design/
+* Shakil. (2019, August 9). Manifest: Line: 1, column: 1, Syntax error on Chrome browser [Comment on the article “Manifest: Line: 1, column: 1, Syntax error on Chrome browser”]. Stack Overflow. https://stackoverflow.com/questions/57423244/manifest-line-1-column-1-syntax-error-on-chrome-browser
+* Gowtham, S. (2019, December 20). How to Fetch Data using React hooks. Reactgo. https://reactgo.com/fetch-data-react-hooks/
+* Stenius, M. (2019, June 19). How to get started with D3 and React. FreeCodeCamp.Org. https://www.freecodecamp.org/news/how-to-get-started-with-d3-and-react-c7da74a5bd9f/
+* Cho, K. (2019, 31 januari). How to create a pie chart with D3.js and React Hooks (Part 1). Medium. https://medium.com/stationfive/how-to-create-a-pie-chart-with-d3-js-and-react-hooks-part-1-81bcd7f39b32
+* Colt Steele. (2020, May 7). Beginner’s Guide to React w/ Hooks (2020) Free Course [Video]. YouTube. https://www.youtube.com/watch?v=9U3IhLAnSxM&ab_channel=ColtSteele
+* Gowtham, S. (2019, December 20). How to Fetch Data using React hooks. Reactgo. https://reactgo.com/fetch-data-react-hooks/
+* Traversy Media. (2019, November 22). React Suspense Introduction (Data Fetching) [Video]. YouTube. https://www.youtube.com/watch?v=NTDJ-NQ32_E&ab_channel=TraversyMedia
+* Shakil. (2019, August 9). Manifest: Line: 1, column: 1, Syntax error on Chrome browser [Manifest error]. Stack Overflow. https://stackoverflow.com/questions/57423244/manifest-line-1-column-1-syntax-error-on-chrome-browser
+* Code Drip by Aaron Jack. (2019, December 18). Learn REACT JS in just 5 MINUTES (2020) [Video]. YouTube. https://www.youtube.com/watch?v=MRIMT0xPXFI&ab_channel=CodeDripbyAaronJack
+* Ben Awad. (2018, October 28). Fetching Data from an API with React Hooks useEffect [Video]. YouTube. https://www.youtube.com/watch?v=k0WnY0Hqe5c&ab_channel=BenAwad
+* Pop, A. (2020, November 13). Correctly handling async/await in React components. DEV Community. https://dev.to/alexandrudanpop/correctly-handling-async-await-in-react-components-4h74
+* FrontendTips. (2020, August 12). Pie chart using d3 library #d3js [Video]. YouTube. https://www.youtube.com/watch?v=lnXf1mpFGb8&ab_channel=FrontendTips
+* GeeksforGeeks. (2020, August 31). D3.js arc.centroid() Function. https://www.geeksforgeeks.org/d3-js-arc-centroid-function/
+* Holtz, Y. (n.d.). Pie chart with annotation in d3.js. D3.Js Graph Gallery. Retrieved 23 December 2020, from https://www.d3-graph-gallery.com/graph/pie_annotation.html
+* CurranKelleher. (2020, September 22). Datavis 2020 Episode 31 - Scatter Plot with Menus [Video]. YouTube. https://www.youtube.com/watch?v=j4VI47GlmGA&t=784s&ab_channel=CurranKelleher
+* TutorialsTeacher. (n.d.). Piecharts with D3. Retrieved 23 December 2020, from https://www.tutorialsteacher.com/d3js/create-pie-chart-using-d3js
+* Dib, F. (n.d.). Online regex tester and debugger: PHP, PCRE, Python, Golang and JavaScript. Regular Expressions 101. Retrieved 30 November 2020, from https://regex101.com/
+* Awad, B. (2018, October 18). benawad/react-hooks-examples. GitHub. https://github.com/benawad/react-hooks-examples/blob/2_api_useEffect/src/App.js
+* Kantor, I. (n.d.). Conditional branching: if, ‘?’ Javascript.Info. Retrieved 30 November 2020, from https://javascript.info/ifelse
 
 ## :lock: License
 This repo is licensed as [MIT](https://github.com/veerleprins/frontend-applications/blob/main/LICENSE) by :copyright: [Veerle Prins](https://github.com/veerleprins), 2020
-
-
-
-<!-- # Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
