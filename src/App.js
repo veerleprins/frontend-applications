@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import { cleanCars } from "./modules/clean/cleanCars.js";
 import { Intro } from "./components/molecules/intro";
 import { DutchMap } from "./components/molecules/dutchmap.js";

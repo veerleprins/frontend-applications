@@ -8,11 +8,10 @@ import { SpanTitle } from '../atoms/spantitle';
  
 // D3 BarChart with help from Curran Kelleher.
 // Source: https://www.youtube.com/watch?v=y03s9MEx6mc&list=PL9yYRbwpkykuK6LSMLH3bAaPpXaDUXcLV&index=23
+const xValue = d => d.brand; //TESLA
+const yValue = d => d.value; //40000
 
 export const BarChart = ({ data, cars }) => {
-  const xValue = d => d.brand; //TESLA
-  const yValue = d => d.value; //40000
-
   const xScale = scaleBand()
     .domain(data.map(xValue))
     .range([0, innerWidth])

@@ -24,7 +24,7 @@ export const DutchMap = ({ data, garages, chargingPoints }) => {
   .on('zoom', (e) => {
     group.attr('transform', e.transform)
   });
-
+  
   svg.call(zoomMap);
 
   return (
