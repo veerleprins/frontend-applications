@@ -1,10 +1,4 @@
-import {
-  margin,
-  width,
-  height,
-  innerHeight,
-  innerWidth,
-} from "../../modules/helpers/utils";
+import { margin, innerHeight, innerWidth } from "../../modules/helpers/utils";
 import { format, scaleBand, scaleLinear, max } from "d3";
 // Importing the other components:
 import { AxisBottom } from "../atoms/axisbottom";
@@ -35,7 +29,6 @@ export const BarChart = ({ data, cars }) => {
       />
       <div className="center">
         <div className="svg-container">
-          {/* <svg width={width} height={height}> */}
           <svg
             className="svg-content"
             preserveAspectRatio="xMinYMin meet"

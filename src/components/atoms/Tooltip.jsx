@@ -1,7 +1,6 @@
 export const Tooltip = ({ data, x, y }) => {
   return (
     <g transform={`translate(${x + 20}, ${y})`} x="10" y="30">
-      {/* <g x={10} y={30}> */}
       <rect className="tooltip-background" />
       <text className="tooltip-text" x="10" y="30">
         <tspan>{data.brand}</tspan>

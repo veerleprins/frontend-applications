@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { select, geoPath, geoMercator, zoom } from "d3";
-import { width, height } from "../../modules/helpers/utils";
 // Importing the components:
 import { Paths } from "../atoms/paths";
 import { Circles } from "../atoms/circles";
@@ -33,7 +32,6 @@ export const DutchMap = ({ data, garages, chargingPoints }) => {
       />
       <div className="center">
         <div className="svg-container">
-          {/* <svg className='dutch-map' ref={svgEl} width={width} height={height}> */}
           <svg
             preserveAspectRatio="xMinYMin meet"
             viewBox={`0 0 600 300`}

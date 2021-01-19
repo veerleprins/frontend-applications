@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { pointer } from "d3";
-import { Tooltip } from "./tooltip";
+import { Tooltip } from "./Tooltip";
 
 export const Bars = ({ data, yScale, xScale, xValue, yValue, innerHeight }) => {
   const [toggle, setToggle] = useState(false);
   const [tooltipData, setTooltipData] = useState({});
 
   // Function to change the toggleTooltip to true, and pass in the exact data
+  // Code from: Jordy Fronik https://github.com/joordy/frontend-applications/blob/main/src/components/molecules/BarChart.svelte
   function showTooltip(event) {
     const index = event.target.getAttribute("data-index");
     const selectedBarData = data[index];
