@@ -35,6 +35,8 @@ The dataset that was used is the datasets supplied by the RDW on behalf of _De V
 
 - [Specifications parking area in the Netherlands](https://opendata.rdw.nl/Parkeren/Open-Data-Parkeren-SPECIFICATIES-PARKEERGEBIED/b3us-f26s)
 - [Location of parking garages in the Netherlands](https://opendata.rdw.nl/Parkeren/GEO-Parkeer-Garages/t5pc-eb34)
+- [Alleen Personenauto's](https://opendata.rdw.nl/Voertuigen/Alleen-Personenauto-s/dy9u-ian4)
+- [Elektrische voertuigen](https://opendata.rdw.nl/Voertuigen/Elektrische-voertuigen/w4rt-e856)
 
 ## :arrow_down: Install
 
