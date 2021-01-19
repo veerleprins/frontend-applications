@@ -1,7 +1,6 @@
 ## Frontend Applications
 
-<img width="724" alt="Screenshot of the page with the visualizations." src="https://user-images.githubusercontent.com/35265583/104816885-454efe00-581e-11eb-8c93-da6a5e05cfeb.png"> 
-<img width="100" alt="Screenshot 2021-01-20 at 00 06 34" src="https://user-images.githubusercontent.com/35265583/105104884-65e3b600-5ab3-11eb-98cc-0074c7012e81.png">
+<img width="1624" alt="Screenshot of the page with the visualizations." src="https://user-images.githubusercontent.com/35265583/104816885-454efe00-581e-11eb-8c93-da6a5e05cfeb.png">
 
 ## Table of contents:
 
