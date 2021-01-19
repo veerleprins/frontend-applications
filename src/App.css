@@ -46,7 +46,19 @@ footer {
   width: 100%;
   height: 20vh;
 }
-
+.tooltip-background {
+  fill: #054522;
+  width: 200px;
+  height: 75px;
+}
+.tooltip-text {
+  fill: white;
+  font-size: 1.5rem;
+}
+.yellow {
+  fill: #f6ae2d;
+  font-weight: bold;
+}
 .percentage {
   font-size: 0.8em;
 }
@@ -58,7 +70,6 @@ footer {
   display: inline-block;
   position: relative;
   width: 100%;
-  /* height: 500px; */
   height: 100vw;
   margin-top: 2rem;
   overflow: hidden;
@@ -80,7 +91,7 @@ footer {
   max-width: 700px;
 }
 
-/* .greenSpace {
+.greenSpace {
   width: 50%;
   height: 850px;
   position: absolute;
@@ -88,7 +99,7 @@ footer {
   top: 40px;
   z-index: -1;
   background-color: #094f28;
-} */
+}
 
 .imgCar {
   position: absolute;
@@ -162,6 +173,10 @@ text {
 .chargingpoints {
   fill: #f6ae2d;
 }
+.center {
+  display: flex;
+  justify-content: center;
+}
 
 @media (min-width: 450px) {
   h1 {
@@ -228,6 +243,9 @@ text {
   .yellowColor {
     padding: 30px 0px;
   }
+  text {
+    font-size: 16px;
+  }
 
   .imgCar {
     width: auto;
@@ -235,5 +253,6 @@ text {
   }
   .svg-container {
     margin-top: 6rem;
+    max-width: 70%;
   }
 }

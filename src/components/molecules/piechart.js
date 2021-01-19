@@ -33,30 +33,32 @@ export const PieChart = ({ data }) => {
         spanText={data[1].percentage + " %"}
         last="van alle auto's in Nederland."
       />
-      <div className="svg-container">
-        <svg
-          preserveAspectRatio="xMinYMin meet"
-          viewBox={`0 0 600 300`}
-          className="svg-content"
-        >
-          {totalData.map((d, i) => (
-            <Labels key={i + 2} data={d} colors={colors} index={i} />
-          ))}
-          <g transform={`translate(${300},${150})`}>
+      <div className="center">
+        <div className="svg-container">
+          <svg
+            preserveAspectRatio="xMinYMin meet"
+            viewBox={`0 0 600 300`}
+            className="svg-content"
+          >
             {totalData.map((d, i) => (
-              <>
-                <ArcPath
-                  key={i}
-                  data={d}
-                  index={i}
-                  createArc={createArc}
-                  colors={colors}
-                  list={list}
-                />
-              </>
+              <Labels key={i + 2} data={d} colors={colors} index={i} />
             ))}
-          </g>
-        </svg>
+            <g transform={`translate(${300},${150})`}>
+              {totalData.map((d, i) => (
+                <>
+                  <ArcPath
+                    key={i}
+                    data={d}
+                    index={i}
+                    createArc={createArc}
+                    colors={colors}
+                    list={list}
+                  />
+                </>
+              ))}
+            </g>
+          </svg>
+        </div>
       </div>
     </section>
   );
