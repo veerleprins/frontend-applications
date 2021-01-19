@@ -1,5 +1,6 @@
 main {
   padding: 20px 16px;
+  overflow: hidden;
 }
 
 h1 {
@@ -44,6 +45,30 @@ footer {
   background-color: #054522;
   width: 100%;
   height: 20vh;
+}
+
+.percentage {
+  font-size: 0.8em;
+}
+
+@media screen and (max-width: 768px) {
+}
+
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  /* height: 500px; */
+  height: 100vw;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .loading {
@@ -116,6 +141,7 @@ footer {
 }
 
 text {
+  font-size: 16px;
   fill: white;
 }
 
@@ -124,7 +150,7 @@ text {
 }
 
 .city {
-  fill: #043E1D;
+  fill: #043e1d;
   stroke: white;
   stroke-width: 0.03px;
 }
@@ -147,7 +173,7 @@ text {
   main {
     padding: 20px 100px;
   }
-  
+
   h1 {
     font-size: 80px;
   }
@@ -178,19 +204,25 @@ text {
   .centered {
     visibility: visible;
   }
+  .svg-container {
+    margin-top: 4rem;
+  }
 }
 
 @media (min-width: 1200px) {
   main {
     padding: 20px 60px;
   }
-  
+
   h1 {
     font-size: 120px;
   }
 
   h2 {
     font-size: 40px;
+  }
+  .pie-label {
+    font-size: 10px;
   }
 
   .yellowColor {
@@ -201,5 +233,7 @@ text {
     width: auto;
     height: auto;
   }
-
+  .svg-container {
+    margin-top: 6rem;
+  }
 }

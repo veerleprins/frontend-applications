@@ -1,13 +1,17 @@
-export const ArcPath = ({ data, index, createArc, colors, label }) => (
-  <g key={index} className="arc">
-    <path className="piePath" d={createArc(data)} fill={colors(index)} />
+export const ArcPath = ({ data, index, createArc, colors, list }) => (
+  <>
+    <path
+      key={index}
+      className="piePath"
+      d={createArc(data)}
+      fill={colors(index)}
+    />
     <text
-      // transform={`translate(${createArc.centroid(data)})`}
-      // textAnchor="middle"
-      // alignmentBaseline="middle"
-      transform={`translate(${label.centroid(data)})`}
+      key={index + 5}
+      className="percentage"
+      transform={`translate(${list[index].centroid(data)})`}
     >
-      { data.data.percentage + " %" }
+      {data.data.percentage + " %"}
     </text>
-  </g>
+  </>
 );
