@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { pointer } from "d3";
-import { Tooltip } from "./Tooltip";
+import { Tooltip } from "./tooltip";
 
 export const Bars = ({ data, yScale, xScale, xValue, yValue, innerHeight }) => {
   const [toggle, setToggle] = useState(false);
@@ -13,7 +13,7 @@ export const Bars = ({ data, yScale, xScale, xValue, yValue, innerHeight }) => {
     const selectedBarData = data[index];
     const [x, y] = pointer(event);
     // Set data.
-    setTooltipData({ selectedBarData, x, y });
+    setTooltipData({ selectedBarData, x, y, index });
     setToggle(true);
   }
   function hideTooltip(event) {
@@ -43,6 +43,7 @@ export const Bars = ({ data, yScale, xScale, xValue, yValue, innerHeight }) => {
           data={tooltipData.selectedBarData}
           x={tooltipData.x}
           y={tooltipData.y}
+          i={tooltipData.index}
         />
       )}
     </>
